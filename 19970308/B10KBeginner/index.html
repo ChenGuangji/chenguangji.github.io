@@ -1,0 +1,105 @@
+<!DOCTYPE html><html class="appearance-dark" lang="en"><head><meta charset="UTF-8"><title>B10K生信入门教程</title><meta name="description" content="PhD students of UCAS"><meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, initial-scale=1"><!-- Google tag (gtag.js) --><!-- End Google tag (gtag.js) -->
+<!-- Baidu Analytics --><script>var _hmt = _hmt || [];
+(function() {
+var hm = document.createElement("script");
+hm.src = "https://hm.baidu.com/hm.js?" + '1dc4dc2e5fafc5a20cb3020da4a764f4';
+var s = document.getElementsByTagName("script")[0];
+s.parentNode.insertBefore(hm, s);
+})();</script><!-- End Baidu Analytics --><link rel="icon" href="/images/favicon.png"><link rel="stylesheet" href="/style/common/bulma.css"><link rel="stylesheet" href="/style/base.css"><link rel="stylesheet" href="/style/common/helper.css"><script src="/js/common.js"></script><link rel="stylesheet" href="/style/post.css"><link rel="stylesheet" href="/style/themes/highlight-theme-light.css"><link rel="stylesheet" href="/style/common/jquery.fancybox.min.css"><script src="/js/highlight.pack.js"></script><meta name="description" content="这是一个持续会更新的教程，专为B10K入门的新人们编写，旨在快速理解并使用一些常用脚本、软件等……
+
+
+1. Bash1.1 环境变量当我们使用mobaxterm或iterm2以ssh usrname@ipaddress登录到集群上时，文件/home/usrname/.bash_profile会被加载。
+我们常说的环境变量记录在了这一文件中。手动加载该文件的方式为source ~/.bash_profile。此处 ~ 即为 /home/usrname/。
+为了更好的知道，我们上一行命令是否执行完成，我们有两种做法：
+
+执行命令并输出一个tag文件，需要用到&amp;amp;&amp;amp;命令。
+
+例如sleep 60 &amp;amp;&amp;amp; touch sleep_60.done 或者 sleep &amp;amp;&amp;amp; .."><meta name="generator" content="Hexo 7.0.0"><link rel="alternate" href="/atom.xml" title="Guangji" type="application/atom+xml">
+</head><body class="is-flex is-flex-direction-column"><header class="header-widget is-flex-shrink-0 is-hidden-mobile"><div class="container is-fullhd is-flex is-justify-content-space-between is-align-items-center is-full-height"><section class="is-hidden-mobile is-flex-shrink-0"><h2><a href="/">Guangji's Website</a></h2></section><h3 class="is-hidden-mobile is-family-serif is-full-height is-flex is-align-items-center is-flex-shrink-0"><div class="is-full-height" id="postTopic"><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">B10K生信入门教程</p><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">Click back to the top</p></div></h3><aside class="is-flex-shrink-0"><h3 class="is-inline-block"><a href="/">Home</a></h3><h3 class="is-inline-block"><a href="/post">Posts</a></h3><h3 class="is-inline-block"><a href="/publications">Publications</a></h3></aside></div></header><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-center is-hidden-tablet"><h3 class="is-inline-block"><a href="/">Home</a></h3><h3 class="is-inline-block"><a href="/post">Posts</a></h3><h3 class="is-inline-block"><a href="/publications">Publications</a></h3></header><main><main class="container is-max-widescreen content section post-page pt-4 px-4"><div class="columns is-flex-desktop is-justify-content-center is-flex-direction-row-reverse"><div class="column is-3 is-hidden-mobile"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-Bash"><span class="toc-text">1. Bash</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="toc-text">1.1 环境变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-%E5%B8%B8%E7%94%A8%E7%BC%A9%E5%86%99"><span class="toc-text">1.2 常用缩写</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Next-time-upadte"><span class="toc-text">Next_time_upadte</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-Perl%E8%84%9A%E6%9C%AC"><span class="toc-text">2. Perl脚本</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-Python%E8%84%9A%E6%9C%AC"><span class="toc-text">3. Python脚本</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-B10K%E6%95%B0%E6%8D%AE"><span class="toc-text">4. B10K数据</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-%E5%B9%B6%E8%A1%8C%E5%8C%96%E5%A4%84%E7%90%86"><span class="toc-text">5. 并行化处理</span></a></li></ol></div><div class="column is-9"><header class="my-4"><a href="/tags/B10K"><i class="tag post-item-tag">B10K</i></a></header><h1 class="mt-0 mb-1 is-family-serif" id="postTitle">B10K生信入门教程</h1><time class="has-text-grey" datetime="1997-03-07T16:00:00.000Z">1997-03-08</time><article class="mt-2 post-content"><p>这是一个持续会更新的教程，专为B10K入门的新人们编写，旨在快速理解并使用一些常用脚本、软件等……</p>
+<span id="more"></span>
+
+<h1 id="1-Bash"><a href="#1-Bash" class="headerlink" title="1. Bash"></a>1. Bash</h1><h2 id="1-1-环境变量"><a href="#1-1-环境变量" class="headerlink" title="1.1 环境变量"></a>1.1 环境变量</h2><p>当我们使用<code>mobaxterm</code>或<code>iterm2</code>以<code>ssh usrname@ipaddress</code>登录到集群上时，文件<code>/home/usrname/.bash_profile</code>会被加载。</p>
+<p>我们常说的环境变量记录在了这一文件中。手动加载该文件的方式为<code>source ~/.bash_profile</code>。此处 <code>~</code> 即为 <code>/home/usrname/</code>。</p>
+<p>为了更好的知道，我们上一行命令是否执行完成，我们有两种做法：</p>
+<ol>
+<li><p><strong>执行命令并输出一个tag文件</strong>，需要用到<code>&amp;&amp;</code>命令。</p>
+<ul>
+<li>例如<code>sleep 60 &amp;&amp; touch sleep_60.done</code> 或者 <code>sleep &amp;&amp; echo sleep_60 done</code>。</li>
+<li>两者的差异是执行完<code>sleep 60</code>后<code>touch</code>命令生成了一个新文件 和 <code>echo</code>命令在屏幕端输出了一行字符。</li>
+</ul>
+</li>
+<li><p><strong>修改环境变量中<code>PS1</code>参数</strong>，通过<code>^_^</code> 与<code>O_O</code>两个符号判断命令行是否执行成功，可以减少屏幕端的输出或一个新文件的生成。</p>
+<pre><code class="highlight bash"><span class="comment"># 良渚端PS1参数示例</span>
+<span class="comment">#### BASIC ENV ####</span>
+<span class="built_in">export</span> PS1=<span class="string">&quot;\</span>
+<span class="string">\[\033[33;1m\]\h:\u \033[35;1m\t \</span>
+<span class="string">\$(if [[ \$? -gt 0 ]]; then printf \&quot;\\[\\033[01;31m\\]O_O\&quot;; else printf \&quot;\\[\\033[36;1m\\]^_^\&quot;; fi)</span>
+<span class="string">\[\033[36;1m\]\w\</span>
+<span class="string">\[\033[0m\] LiangZhu</span>
+<span class="string">\[\e[32;1m\]$ \</span>
+<span class="string">\[\e[0m\]&quot;</span>
+<span class="built_in">export</span> LANG=<span class="string">&quot;en_US.UTF-8&quot;</span>
+<span class="built_in">export</span> LC_ALL=<span class="string">&quot;en_US.UTF-8&quot;</span>
+<span class="built_in">export</span> HISTSIZE=9999
+<span class="built_in">export</span> HISTFILESIZE=9999</code></pre>
+
+<p>将上述代码添加至文件<code>/home/usrname/.bash_profile</code>后，通过<code>source</code>手动加载该文件，输入<code>sleep 60</code> 后使用<code>ctrl+c</code>的方式感受一下<code>^_^</code> 与<code>O_O</code>。</p>
+</li>
+</ol>
+<h2 id="1-2-常用缩写"><a href="#1-2-常用缩写" class="headerlink" title="1.2 常用缩写"></a><strong>1.2 常用缩写</strong></h2><p>仔细观察文件<code>/home/usrname/.bash_profile</code>后，会发现除了加载当前文件以外还额外加载了文件<code>/home/usrname/.bashrc</code>，我会把常用的一些缩写写在该文件中。此处，我直接放出我的常用示例：</p>
+<pre><code class="highlight bash"><span class="built_in">alias</span> <span class="built_in">rm</span>=<span class="string">&#x27;rm -i&#x27;</span>
+<span class="built_in">alias</span> <span class="built_in">mv</span>=<span class="string">&#x27;mv -i&#x27;</span>
+<span class="built_in">alias</span> le=<span class="string">&#x27;less -S&#x27;</span>
+<span class="built_in">alias</span> <span class="built_in">ls</span>=<span class="string">&quot;ls -v --color=auto&quot;</span>
+<span class="built_in">alias</span> ll=<span class="string">&quot;ls -lh -v&quot;</span>
+<span class="built_in">alias</span> lt=<span class="string">&quot;ls -lh -t -r&quot;</span>
+<span class="built_in">alias</span> la=<span class="string">&quot;ls -a -lh -v&quot;</span>
+<span class="built_in">alias</span> wl=<span class="string">&#x27;ll | wc -l&#x27;</span>
+<span class="built_in">alias</span> c=<span class="string">&#x27;clear&#x27;</span>  <span class="comment"># 快速清屏</span>
+<span class="built_in">alias</span> p=<span class="string">&#x27;pwd&#x27;</span>
+
+<span class="built_in">alias</span> vi=<span class="string">&quot;vim&quot;</span>
+<span class="built_in">alias</span> ps=<span class="string">&quot;/bin/ps ux --sort=pcpu,pmem,user,pid | cat&quot;</span>
+<span class="built_in">alias</span> h.my=<span class="string">&quot;htop -u chenguangji&quot;</span>
+
+<span class="comment">## Colorize the grep command output for ease of use (good for log files)##</span>
+<span class="built_in">alias</span> grep=<span class="string">&#x27;grep --color=auto&#x27;</span>
+<span class="built_in">alias</span> egrep=<span class="string">&#x27;egrep --color=auto&#x27;</span>
+<span class="built_in">alias</span> fgrep=<span class="string">&#x27;fgrep --color=auto&#x27;</span>
+
+<span class="built_in">alias</span> tf=<span class="string">&#x27;tail -f &#x27;</span> 
+<span class="built_in">alias</span> j=<span class="string">&#x27;jobs -l&#x27;</span>
+<span class="built_in">alias</span> tf=<span class="string">&#x27;tail -f &#x27;</span>
+<span class="built_in">alias</span> vi=<span class="string">&#x27;vim&#x27;</span>
+<span class="built_in">alias</span> <span class="built_in">which</span>=<span class="string">&#x27;alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde&#x27;</span>
+<span class="built_in">alias</span> ta=<span class="string">&#x27;tmux attach&#x27;</span>
+
+<span class="comment"># 进入目录并列出文件</span>
+<span class="built_in">alias</span> ..=<span class="string">&quot;cdl ..&quot;</span>
+<span class="built_in">alias</span> .2=<span class="string">&quot;cd ../..&quot;</span>   <span class="comment"># 快速进入上上层目录</span>
+<span class="built_in">alias</span> .3=<span class="string">&quot;cd ../../..&quot;</span>
+<span class="built_in">alias</span> <span class="built_in">cd</span>..=<span class="string">&#x27;cdl ..&#x27;</span>
+
+<span class="comment">#Start calculator with math support</span>
+<span class="built_in">alias</span> bc=<span class="string">&#x27;bc -l&#x27;</span>
+
+<span class="comment"># sbatch</span>
+<span class="built_in">alias</span> sb=<span class="string">&#x27;sbatch &#x27;</span>
+<span class="built_in">alias</span> sq=<span class="string">&#x27;squeue -u chenguangji&#x27;</span>
+<span class="built_in">alias</span> sj=<span class="string">&#x27;scontrol show job &#x27;</span>
+<span class="built_in">alias</span> sdir=<span class="string">&#x27;echo &quot;Running&quot; &amp;&amp; sq | awk &#x27;</span>\&#x27;<span class="string">&#x27;$5==&quot;R&quot;&#x27;</span>\&#x27;<span class="string">&#x27;|awk &#x27;</span>\&#x27;<span class="string">&#x27;&#123;print &quot;scontrol show job &quot;$1&#125;&#x27;</span>\&#x27;<span class="string">&#x27;|sh|grep &quot;WorkDir&quot;|sort|uniq -c &amp;&amp; echo &quot;PENDING&quot; &amp;&amp; sq | awk &#x27;</span>\&#x27;<span class="string">&#x27;$5==&quot;PD&quot;&#x27;</span>\&#x27;<span class="string">&#x27;|awk &#x27;</span>\&#x27;<span class="string">&#x27;&#123;print &quot;scontrol show job &quot;$1&#125;&#x27;</span>\&#x27;<span class="string">&#x27;|sh|grep &quot;WorkDir&quot;|sort|uniq -c&#x27;</span>
+<span class="built_in">alias</span> sdirR=<span class="string">&#x27;echo &quot;Running&quot; &amp;&amp; sq | awk &#x27;</span>\&#x27;<span class="string">&#x27;$5==&quot;R&quot;&#x27;</span>\&#x27;<span class="string">&#x27;|awk &#x27;</span>\&#x27;<span class="string">&#x27;&#123;print &quot;scontrol show job &quot;$1&#125;&#x27;</span>\&#x27;<span class="string">&#x27;|sh|grep &quot;WorkDir&quot;|sort|uniq -c&#x27;</span>
+<span class="built_in">alias</span> sdirP=<span class="string">&#x27;echo &quot;PENDING&quot; &amp;&amp; sq | awk &#x27;</span>\&#x27;<span class="string">&#x27;$5==&quot;PD&quot;&#x27;</span>\&#x27;<span class="string">&#x27;|awk &#x27;</span>\&#x27;<span class="string">&#x27;&#123;print &quot;scontrol show job &quot;$1&#125;&#x27;</span>\&#x27;<span class="string">&#x27;|sh|grep &quot;WorkDir&quot;|sort|uniq -c&#x27;</span>
+<span class="built_in">alias</span> scom=<span class="string">&#x27;echo &quot;Running&quot; &amp;&amp; sq | awk &#x27;</span>\&#x27;<span class="string">&#x27;$5==&quot;R&quot;&#x27;</span>\&#x27;<span class="string">&#x27;|awk &#x27;</span>\&#x27;<span class="string">&#x27;&#123;print &quot;scontrol show job &quot;$1&#125;&#x27;</span>\&#x27;<span class="string">&#x27;|sh|grep &quot;Command&quot;|sort|uniq -c &amp;&amp; echo &quot;PENDING&quot; &amp;&amp; sq | awk &#x27;</span>\&#x27;<span class="string">&#x27;$5==&quot;PD&quot;&#x27;</span>\&#x27;<span class="string">&#x27;|awk &#x27;</span>\&#x27;<span class="string">&#x27;&#123;print &quot;scontrol show job &quot;$1&#125;&#x27;</span>\&#x27;<span class="string">&#x27;|sh|grep &quot;Command&quot;|sort|uniq -c&#x27;</span>
+
+<span class="comment"># quota</span>
+<span class="built_in">alias</span> quota=<span class="string">&#x27;mmlsquota -u chenguangji --block-size auto;mmlsquota -g zhanglab --block-size auto;echo &quot;&quot;;df -h ./&#x27;</span></code></pre>
+
+<p><strong>我最为常用的命令有：<code>ta</code>、<code>sq</code>、<code>sdir</code>、<code>quota</code>以及<code>..</code>与<code>.3</code>。</strong></p>
+<h1 id="Next-time-upadte"><a href="#Next-time-upadte" class="headerlink" title="Next_time_upadte"></a>Next_time_upadte</h1><ol>
+<li><strong>perl 脚本</strong></li>
+<li><strong>python 脚本</strong></li>
+<li><strong>B10K项目简介及相关数据</strong></li>
+<li><strong>并行化处理</strong></li>
+</ol>
+<h1 id="2-Perl脚本"><a href="#2-Perl脚本" class="headerlink" title="2. Perl脚本"></a>2. Perl脚本</h1><h1 id="3-Python脚本"><a href="#3-Python脚本" class="headerlink" title="3. Python脚本"></a>3. Python脚本</h1><h1 id="4-B10K数据"><a href="#4-B10K数据" class="headerlink" title="4. B10K数据"></a>4. B10K数据</h1><h1 id="5-并行化处理"><a href="#5-并行化处理" class="headerlink" title="5. 并行化处理"></a>5. 并行化处理</h1></article><section class="jump-container is-flex is-justify-content-space-between my-6"><!-- em is empty placeholder--><a class="button is-default" href="/20230401/SETvsEES/" title="演化论的争论：SET与EES"><i class="iconfont icon-prev mr-2 has-text-grey"></i><span class="has-text-weight-semibold">Previous: 演化论的争论：SET与EES</span></a></section><article class="mt-6 comment-container"><script async repo="ChenGuangji/myBlogRepo" src="https://utteranc.es/client.js" issue-term="pathname" theme="preferred-color-scheme"></script></article></div></div></main></main><footer class="is-flex is-flex-direction-column is-align-items-center is-flex-shrink-0 is-family-serif"><section class="sns-container"><!-- aboutme--><a title="aboutme" target="_blank" rel="noopener nofollow" href="/"><i class="iconfont icon-Aboutme"></i></a><!-- twitter--><!-- Github--><a title="github" target="_blank" rel="noopener nofollow" href="//github.com/ChenGuangji"><i class="iconfont icon-github"></i></a><!-- Ins--><!-- RSS--><!-- 知乎--><!-- 领英--><!-- 脸书--><!-- email--><a title="email" target="_blank" rel="noopener nofollow" href="mailto:chenguangji38@gmail.com"><i class="iconfont icon-email"></i></a></section><p><span>Copyright ©</span><span> Guangji 2024 | Hexo Theme <a title="Hexo theme author" target="_blank" rel="noopener" href="//github.com/haojen/hexo-theme-Claudia">Claudia&nbsp;</a></span><span></span></p></footer><script async defer src="https://buttons.github.io/buttons.js"></script><script src="/js/jquery-3.6.1.min.js"></script><script src="/js/jquery-fancybox.min.js"></script><script src="/js/img_zoom.js"></script><script src="/js/post.js"></script></body></html>
