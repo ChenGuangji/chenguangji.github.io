@@ -6,7 +6,7 @@
   <link href="https://chenguangji.github.io/project/atom.xml" rel="self"/>
   
   <link href="https://chenguangji.github.io/project/"/>
-  <updated>2025-04-03T06:59:31.006Z</updated>
+  <updated>2025-04-03T07:06:45.132Z</updated>
   <id>https://chenguangji.github.io/project/</id>
   
   <author>
@@ -20,15 +20,16 @@
     <title></title>
     <link href="https://chenguangji.github.io/project/JournalClub/index.html"/>
     <id>https://chenguangji.github.io/project/JournalClub/index.html</id>
-    <published>2025-04-03T06:59:31.006Z</published>
-    <updated>2025-04-03T06:59:31.006Z</updated>
+    <published>2025-04-03T07:06:45.132Z</published>
+    <updated>2025-04-03T07:06:45.132Z</updated>
     
-    <content type="html"><![CDATA[<iframe src="https://guangjichen.notion.site/ebd/1c330c06ebf480478ce4cb4b6f0bbe59" width="150%" height="1000" frameborder="0" allowfullscreen />]]></content>
+    <content type="html"><![CDATA[<div style="width:100%; overflow:hidden;"><iframe src="https://guangjichen.notion.site/ebd/1c330c06ebf480478ce4cb4b6f0bbe59" width="130%" height="1500" frameborder="0" allowfullscreen /></div>]]></content>
     
     
       
       
-    <summary type="html">&lt;iframe src=&quot;https://guangjichen.notion.site/ebd/1c330c06ebf480478ce4cb4b6f0bbe59&quot; width=&quot;150%&quot; height=&quot;1000&quot; frameborder=&quot;0&quot; allowfullscree</summary>
+    <summary type="html">&lt;div style=&quot;width:100%; overflow:hidden;&quot;&gt;
+&lt;iframe src=&quot;https://guangjichen.notion.site/ebd/1c330c06ebf480478ce4cb4b6f0bbe59&quot; width=&quot;130%&quot; h</summary>
       
     
     
@@ -72,9 +73,9 @@
     
     
     
-    <category term="ZJU-discussion" scheme="https://chenguangji.github.io/project/tags/ZJU-discussion/"/>
-    
     <category term="科普" scheme="https://chenguangji.github.io/project/tags/%E7%A7%91%E6%99%AE/"/>
+    
+    <category term="ZJU-discussion" scheme="https://chenguangji.github.io/project/tags/ZJU-discussion/"/>
     
   </entry>
   
