@@ -6,7 +6,7 @@
   <link href="https://chenguangji.github.io/project/atom.xml" rel="self"/>
   
   <link href="https://chenguangji.github.io/project/"/>
-  <updated>2024-07-31T09:14:35.666Z</updated>
+  <updated>2025-04-03T06:59:31.006Z</updated>
   <id>https://chenguangji.github.io/project/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="https://chenguangji.github.io/project/JournalClub/index.html"/>
+    <id>https://chenguangji.github.io/project/JournalClub/index.html</id>
+    <published>2025-04-03T06:59:31.006Z</published>
+    <updated>2025-04-03T06:59:31.006Z</updated>
+    
+    <content type="html"><![CDATA[<iframe src="https://guangjichen.notion.site/ebd/1c330c06ebf480478ce4cb4b6f0bbe59" width="150%" height="1000" frameborder="0" allowfullscreen />]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;iframe src=&quot;https://guangjichen.notion.site/ebd/1c330c06ebf480478ce4cb4b6f0bbe59&quot; width=&quot;150%&quot; height=&quot;1000&quot; frameborder=&quot;0&quot; allowfullscree</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>Publications (update 202406)</title>
@@ -141,26 +161,6 @@
     
     
     <category term="ZJU-discussion" scheme="https://chenguangji.github.io/project/tags/ZJU-discussion/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Journal Club</title>
-    <link href="https://chenguangji.github.io/project/JournalClub/index.html"/>
-    <id>https://chenguangji.github.io/project/JournalClub/index.html</id>
-    <published>2022-03-13T16:00:00.000Z</published>
-    <updated>2025-04-03T06:53:57.162Z</updated>
-    
-    <content type="html"><![CDATA[<iframe src="https://guangjichen.notion.site/ebd/1c330c06ebf480478ce4cb4b6f0bbe59" width="100%" height="600" frameborder="0" allowfullscreen />]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;iframe src=&quot;https://guangjichen.notion.site/ebd/1c330c06ebf480478ce4cb4b6f0bbe59&quot; width=&quot;100%&quot; height=&quot;600&quot; frameborder=&quot;0&quot; allowfullscreen</summary>
-      
-    
-    
-    
     
   </entry>
   

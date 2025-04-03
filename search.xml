@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title></title>
+      <link href="//JournalClub/index.html"/>
+      <url>//JournalClub/index.html</url>
+      
+        <content type="html"><![CDATA[<iframe src="https://guangjichen.notion.site/ebd/1c330c06ebf480478ce4cb4b6f0bbe59" width="150%" height="1000" frameborder="0" allowfullscreen />]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Publications (update 202406)</title>
       <link href="//publications/index.html"/>
       <url>//publications/index.html</url>
@@ -146,19 +159,6 @@
             <tag> ZJU-discussion </tag>
             
         </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Journal Club</title>
-      <link href="//JournalClub/index.html"/>
-      <url>//JournalClub/index.html</url>
-      
-        <content type="html"><![CDATA[<iframe src="https://guangjichen.notion.site/ebd/1c330c06ebf480478ce4cb4b6f0bbe59" width="100%" height="600" frameborder="0" allowfullscreen />]]></content>
-      
-      
       
     </entry>
     
