@@ -6,7 +6,7 @@
   <link href="https://chenguangji.github.io/project/atom.xml" rel="self"/>
   
   <link href="https://chenguangji.github.io/project/"/>
-  <updated>2025-04-03T07:17:16.849Z</updated>
+  <updated>2024-07-31T09:14:35.666Z</updated>
   <id>https://chenguangji.github.io/project/</id>
   
   <author>
@@ -15,27 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title></title>
-    <link href="https://chenguangji.github.io/project/JournalClub/index.html"/>
-    <id>https://chenguangji.github.io/project/JournalClub/index.html</id>
-    <published>2025-04-03T07:17:16.848Z</published>
-    <updated>2025-04-03T07:17:16.849Z</updated>
-    
-    <content type="html"><![CDATA[<div style="width:110%; overflow:hidden;">    <iframe src="https://guangjichen.notion.site/ebd/1c330c06ebf480478ce4cb4b6f0bbe59" width="130%" height="1500" frameborder="0" allowfullscreen /></div>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;div style=&quot;width:110%; overflow:hidden;&quot;&gt;
-    &lt;iframe src=&quot;https://guangjichen.notion.site/ebd/1c330c06ebf480478ce4cb4b6f0bbe59&quot; width=&quot;130</summary>
-      
-    
-    
-    
-    
-  </entry>
   
   <entry>
     <title>Publications (update 202406)</title>
@@ -73,9 +52,9 @@
     
     
     
-    <category term="科普" scheme="https://chenguangji.github.io/project/tags/%E7%A7%91%E6%99%AE/"/>
-    
     <category term="ZJU-discussion" scheme="https://chenguangji.github.io/project/tags/ZJU-discussion/"/>
+    
+    <category term="科普" scheme="https://chenguangji.github.io/project/tags/%E7%A7%91%E6%99%AE/"/>
     
   </entry>
   
@@ -162,6 +141,29 @@
     
     
     <category term="ZJU-discussion" scheme="https://chenguangji.github.io/project/tags/ZJU-discussion/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Journal Club of ZhangLab</title>
+    <link href="https://chenguangji.github.io/project/JournalClub/index.html"/>
+    <id>https://chenguangji.github.io/project/JournalClub/index.html</id>
+    <published>2022-03-13T16:00:00.000Z</published>
+    <updated>2025-04-03T07:32:24.950Z</updated>
+    
+    <content type="html"><![CDATA[<div style="width:105%; overflow:hidden;">  <iframe     src="https://guangjichen.notion.site/ebd/1c330c06ebf480478ce4cb4b6f0bbe59"    style="width:130%; height:5000px; transform:scale(0.90); transform-origin:0 0; border:0; overflow:hidden;"    allowfullscreen>  </iframe></div>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;div style=&quot;width:105%; overflow:hidden;&quot;&gt;
+  &lt;iframe 
+    src=&quot;https://guangjichen.notion.site/ebd/1c330c06ebf480478ce4cb4b6f0bbe59&quot;
+    sty</summary>
+      
+    
+    
+    
     
   </entry>
   
