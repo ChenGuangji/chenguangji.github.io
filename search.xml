@@ -39,9 +39,9 @@
       
         <tags>
             
-            <tag> ZJU-discussion </tag>
-            
             <tag> 科普 </tag>
+            
+            <tag> ZJU-discussion </tag>
             
         </tags>
       
@@ -146,19 +146,6 @@
             <tag> ZJU-discussion </tag>
             
         </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Journal Club of ZhangLab</title>
-      <link href="//JournalClub/index.html"/>
-      <url>//JournalClub/index.html</url>
-      
-        <content type="html"><![CDATA[<div style="width:105%; overflow:hidden;">  <iframe     src="https://guangjichen.notion.site/ebd/1c330c06ebf480478ce4cb4b6f0bbe59"    style="width:130%; height:5000px; transform:scale(0.90); transform-origin:0 0; border:0; overflow:hidden;"    allowfullscreen>  </iframe></div>]]></content>
-      
-      
       
     </entry>
     

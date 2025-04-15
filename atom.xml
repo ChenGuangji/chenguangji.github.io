@@ -52,9 +52,9 @@
     
     
     
-    <category term="ZJU-discussion" scheme="https://chenguangji.github.io/project/tags/ZJU-discussion/"/>
-    
     <category term="科普" scheme="https://chenguangji.github.io/project/tags/%E7%A7%91%E6%99%AE/"/>
+    
+    <category term="ZJU-discussion" scheme="https://chenguangji.github.io/project/tags/ZJU-discussion/"/>
     
   </entry>
   
@@ -141,29 +141,6 @@
     
     
     <category term="ZJU-discussion" scheme="https://chenguangji.github.io/project/tags/ZJU-discussion/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Journal Club of ZhangLab</title>
-    <link href="https://chenguangji.github.io/project/JournalClub/index.html"/>
-    <id>https://chenguangji.github.io/project/JournalClub/index.html</id>
-    <published>2022-03-13T16:00:00.000Z</published>
-    <updated>2025-04-03T07:32:24.950Z</updated>
-    
-    <content type="html"><![CDATA[<div style="width:105%; overflow:hidden;">  <iframe     src="https://guangjichen.notion.site/ebd/1c330c06ebf480478ce4cb4b6f0bbe59"    style="width:130%; height:5000px; transform:scale(0.90); transform-origin:0 0; border:0; overflow:hidden;"    allowfullscreen>  </iframe></div>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;div style=&quot;width:105%; overflow:hidden;&quot;&gt;
-  &lt;iframe 
-    src=&quot;https://guangjichen.notion.site/ebd/1c330c06ebf480478ce4cb4b6f0bbe59&quot;
-    sty</summary>
-      
-    
-    
-    
     
   </entry>
   
