@@ -1,0 +1,458 @@
+<!DOCTYPE html><html class="appearance-light" lang="en"><head><meta charset="UTF-8"><title>B10K生信入门教程 · Guangji Chen</title><meta name="description" content="B10K 入门教程"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#ffffff"><link rel="canonical" href="https://chenguangji.github.io/19970308/B10KBeginner/"><meta property="og:site_name" content="Guangji Chen"><meta property="og:title" content="B10K生信入门教程 · Guangji Chen"><meta property="og:description" content="B10K 入门教程"><meta property="og:type" content="article"><meta property="og:url" content="https://chenguangji.github.io/19970308/B10KBeginner/"><!-- Google tag (gtag.js) --><script async src="https://www.googletagmanager.com/gtag/js?id=G-BP4ZWFKWC7"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-BP4ZWFKWC7');</script><!-- End Google tag --><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement('script');
+  hm.src = 'https://hm.baidu.com/hm.js?' + '1dc4dc2e5fafc5a20cb3020da4a764f4';
+  var s = document.getElementsByTagName('script')[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><link rel="icon" href="/images/favicon.png"><link rel="stylesheet" href="/style/common/bulma.css"><link rel="stylesheet" href="/style/base.css"><link rel="stylesheet" href="/style/common/helper.css"><link rel="stylesheet" href="/style/academic.css"><link rel="stylesheet" href="/style/academic-fixes.css"><link rel="stylesheet" href="/style/academic-polish.css"><link rel="stylesheet" href="/style/academic-white.css"><link rel="stylesheet" href="/style/academic-home-panel.css"><link rel="stylesheet" href="/style/academic-about-links.css"><link rel="stylesheet" href="/style/academic-publications-tight.css"><link rel="stylesheet" href="/style/academic-home-publications.css"><link rel="stylesheet" href="/style/academic-spacing-review.css"><link rel="stylesheet" href="/style/publication-card-spacing.css"><link rel="stylesheet" href="/style/academic-layout-refinements.css"><script src="/js/common.js"></script><link rel="stylesheet" href="/style/themes/highlight-theme-light.css"><link rel="stylesheet" href="/style/common/jquery.fancybox.min.css"><script src="/js/highlight.pack.js"></script><meta name="generator" content="Hexo 7.0.0"><link rel="alternate" href="/atom.xml" title="Guangji Chen" type="application/atom+xml">
+</head><body class="site-body"><a class="skip-link" href="#main-content">Skip to content</a><header class="site-header"><div class="site-shell site-header-inner"><a class="site-brand" href="/"><span class="site-brand-name">Guangji Chen</span><span class="site-brand-field">Evolutionary Genomics</span></a><nav class="site-navigation" aria-label="Primary navigation"><a class="site-navigation-link" href="/">Home</a><a class="site-navigation-link" href="/research/">Research</a><a class="site-navigation-link" href="/publications/">Publications</a><a class="site-navigation-link is-active" href="/post/" aria-current="page">Writing</a><a class="site-navigation-link" href="/about/">About</a></nav></div></header><main class="site-main" id="main-content" tabindex="-1"><article class="academic-article"><div class="site-shell article-shell"><header class="article-header"><div class="article-tags"><a class="academic-tag" href="/tags/B10K">B10K</a></div><h1>B10K生信入门教程</h1><div class="article-meta"><time datetime="1997-03-07T16:00:00.000Z">1997-03-08</time><span>Writing & research notes</span></div></header><div class="article-layout"><article class="article-content content"><p>这是一个持续会更新的教程，专为B10K入门的新人们编写，旨在快速理解并使用一些常用脚本、软件等……</p>
+<span id="more"></span>
+
+<h1 id="1-Bash"><a href="#1-Bash" class="headerlink" title="1. Bash"></a>1. Bash</h1><h2 id="1-1-环境变量"><a href="#1-1-环境变量" class="headerlink" title="1.1 环境变量"></a>1.1 环境变量</h2><p>当我们使用<code>mobaxterm</code>或<code>iterm2</code>以<code>ssh usrname@ipaddress</code>登录到集群上时，文件<code>/home/usrname/.bash_profile</code>会被加载。</p>
+<p>我们常说的环境变量记录在了这一文件中。手动加载该文件的方式为<code>source ~/.bash_profile</code>。此处 <code>~</code> 即为 <code>/home/usrname/</code>。</p>
+<p>为了更好的知道，我们上一行命令是否执行完成，我们有两种做法：</p>
+<ol>
+<li><p><strong>执行命令并输出一个tag文件</strong>，需要用到<code>&amp;&amp;</code>命令。</p>
+<ul>
+<li>例如<code>sleep 60 &amp;&amp; touch sleep_60.done</code> 或者 <code>sleep &amp;&amp; echo sleep_60 done</code>。</li>
+<li>两者的差异是执行完<code>sleep 60</code>后<code>touch</code>命令生成了一个新文件 和 <code>echo</code>命令在屏幕端输出了一行字符。</li>
+</ul>
+</li>
+<li><p><strong>修改环境变量中<code>PS1</code>参数</strong>，通过<code>^_^</code> 与<code>O_O</code>两个符号判断命令行是否执行成功，可以减少屏幕端的输出或一个新文件的生成。</p>
+<pre><code class="highlight bash"><span class="comment"># 良渚端PS1参数示例</span>
+<span class="comment">#### BASIC ENV ####</span>
+<span class="built_in">export</span> PS1=<span class="string">&quot;\</span>
+<span class="string">\[\033[33;1m\]\h:\u \033[35;1m\t \</span>
+<span class="string">\$(if [[ \$? -gt 0 ]]; then printf \&quot;\\[\\033[01;31m\\]O_O\&quot;; else printf \&quot;\\[\\033[36;1m\\]^_^\&quot;; fi)</span>
+<span class="string">\[\033[36;1m\]\w\</span>
+<span class="string">\[\033[0m\] LiangZhu</span>
+<span class="string">\[\e[32;1m\]$ \</span>
+<span class="string">\[\e[0m\]&quot;</span>
+<span class="built_in">export</span> LANG=<span class="string">&quot;en_US.UTF-8&quot;</span>
+<span class="built_in">export</span> LC_ALL=<span class="string">&quot;en_US.UTF-8&quot;</span>
+<span class="built_in">export</span> HISTSIZE=9999
+<span class="built_in">export</span> HISTFILESIZE=9999</code></pre>
+
+<p>将上述代码添加至文件<code>/home/usrname/.bash_profile</code>后，通过<code>source</code>手动加载该文件，输入<code>sleep 60</code> 后使用<code>ctrl+c</code>的方式感受一下<code>^_^</code> 与<code>O_O</code>。</p>
+</li>
+</ol>
+<h2 id="1-2-常用缩写"><a href="#1-2-常用缩写" class="headerlink" title="1.2 常用缩写"></a><strong>1.2 常用缩写</strong></h2><p>仔细观察文件<code>/home/usrname/.bash_profile</code>后，会发现除了加载当前文件以外还额外加载了文件<code>/home/usrname/.bashrc</code>，我会把常用的一些缩写写在该文件中。此处，我直接放出我的常用示例：</p>
+<pre><code class="highlight bash"><span class="built_in">alias</span> <span class="built_in">rm</span>=<span class="string">&#x27;rm -i&#x27;</span>
+<span class="built_in">alias</span> <span class="built_in">mv</span>=<span class="string">&#x27;mv -i&#x27;</span>
+<span class="built_in">alias</span> le=<span class="string">&#x27;less -S&#x27;</span>
+<span class="built_in">alias</span> <span class="built_in">ls</span>=<span class="string">&quot;ls -v --color=auto&quot;</span>
+<span class="built_in">alias</span> ll=<span class="string">&quot;ls -lh -v&quot;</span>
+<span class="built_in">alias</span> lt=<span class="string">&quot;ls -lh -t -r&quot;</span>
+<span class="built_in">alias</span> la=<span class="string">&quot;ls -a -lh -v&quot;</span>
+<span class="built_in">alias</span> wl=<span class="string">&#x27;ll | wc -l&#x27;</span>
+<span class="built_in">alias</span> c=<span class="string">&#x27;clear&#x27;</span>  <span class="comment"># 快速清屏</span>
+<span class="built_in">alias</span> p=<span class="string">&#x27;pwd&#x27;</span>
+
+<span class="built_in">alias</span> vi=<span class="string">&quot;vim&quot;</span>
+<span class="built_in">alias</span> ps=<span class="string">&quot;/bin/ps ux --sort=pcpu,pmem,user,pid | cat&quot;</span>
+<span class="built_in">alias</span> h.my=<span class="string">&quot;htop -u chenguangji&quot;</span>
+
+<span class="comment">## Colorize the grep command output for ease of use (good for log files)##</span>
+<span class="built_in">alias</span> grep=<span class="string">&#x27;grep --color=auto&#x27;</span>
+<span class="built_in">alias</span> egrep=<span class="string">&#x27;egrep --color=auto&#x27;</span>
+<span class="built_in">alias</span> fgrep=<span class="string">&#x27;fgrep --color=auto&#x27;</span>
+
+<span class="built_in">alias</span> tf=<span class="string">&#x27;tail -f &#x27;</span> 
+<span class="built_in">alias</span> j=<span class="string">&#x27;jobs -l&#x27;</span>
+<span class="built_in">alias</span> tf=<span class="string">&#x27;tail -f &#x27;</span>
+<span class="built_in">alias</span> vi=<span class="string">&#x27;vim&#x27;</span>
+<span class="built_in">alias</span> <span class="built_in">which</span>=<span class="string">&#x27;alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde&#x27;</span>
+<span class="built_in">alias</span> ta=<span class="string">&#x27;tmux attach&#x27;</span>
+
+<span class="comment"># 进入目录并列出文件</span>
+<span class="built_in">alias</span> ..=<span class="string">&quot;cdl ..&quot;</span>
+<span class="built_in">alias</span> .2=<span class="string">&quot;cd ../..&quot;</span>   <span class="comment"># 快速进入上上层目录</span>
+<span class="built_in">alias</span> .3=<span class="string">&quot;cd ../../..&quot;</span>
+<span class="built_in">alias</span> <span class="built_in">cd</span>..=<span class="string">&#x27;cdl ..&#x27;</span>
+
+<span class="comment">#Start calculator with math support</span>
+<span class="built_in">alias</span> bc=<span class="string">&#x27;bc -l&#x27;</span>
+
+<span class="comment"># sbatch</span>
+<span class="built_in">alias</span> sb=<span class="string">&#x27;sbatch &#x27;</span>
+<span class="built_in">alias</span> sq=<span class="string">&#x27;squeue -u chenguangji&#x27;</span>
+<span class="built_in">alias</span> sj=<span class="string">&#x27;scontrol show job &#x27;</span>
+<span class="built_in">alias</span> sdir=<span class="string">&#x27;echo &quot;Running&quot; &amp;&amp; sq | awk &#x27;</span>\&#x27;<span class="string">&#x27;$5==&quot;R&quot;&#x27;</span>\&#x27;<span class="string">&#x27;|awk &#x27;</span>\&#x27;<span class="string">&#x27;&#123;print &quot;scontrol show job &quot;$1&#125;&#x27;</span>\&#x27;<span class="string">&#x27;|sh|grep &quot;WorkDir&quot;|sort|uniq -c &amp;&amp; echo &quot;PENDING&quot; &amp;&amp; sq | awk &#x27;</span>\&#x27;<span class="string">&#x27;$5==&quot;PD&quot;&#x27;</span>\&#x27;<span class="string">&#x27;|awk &#x27;</span>\&#x27;<span class="string">&#x27;&#123;print &quot;scontrol show job &quot;$1&#125;&#x27;</span>\&#x27;<span class="string">&#x27;|sh|grep &quot;WorkDir&quot;|sort|uniq -c&#x27;</span>
+<span class="built_in">alias</span> sdirR=<span class="string">&#x27;echo &quot;Running&quot; &amp;&amp; sq | awk &#x27;</span>\&#x27;<span class="string">&#x27;$5==&quot;R&quot;&#x27;</span>\&#x27;<span class="string">&#x27;|awk &#x27;</span>\&#x27;<span class="string">&#x27;&#123;print &quot;scontrol show job &quot;$1&#125;&#x27;</span>\&#x27;<span class="string">&#x27;|sh|grep &quot;WorkDir&quot;|sort|uniq -c&#x27;</span>
+<span class="built_in">alias</span> sdirP=<span class="string">&#x27;echo &quot;PENDING&quot; &amp;&amp; sq | awk &#x27;</span>\&#x27;<span class="string">&#x27;$5==&quot;PD&quot;&#x27;</span>\&#x27;<span class="string">&#x27;|awk &#x27;</span>\&#x27;<span class="string">&#x27;&#123;print &quot;scontrol show job &quot;$1&#125;&#x27;</span>\&#x27;<span class="string">&#x27;|sh|grep &quot;WorkDir&quot;|sort|uniq -c&#x27;</span>
+<span class="built_in">alias</span> scom=<span class="string">&#x27;echo &quot;Running&quot; &amp;&amp; sq | awk &#x27;</span>\&#x27;<span class="string">&#x27;$5==&quot;R&quot;&#x27;</span>\&#x27;<span class="string">&#x27;|awk &#x27;</span>\&#x27;<span class="string">&#x27;&#123;print &quot;scontrol show job &quot;$1&#125;&#x27;</span>\&#x27;<span class="string">&#x27;|sh|grep &quot;Command&quot;|sort|uniq -c &amp;&amp; echo &quot;PENDING&quot; &amp;&amp; sq | awk &#x27;</span>\&#x27;<span class="string">&#x27;$5==&quot;PD&quot;&#x27;</span>\&#x27;<span class="string">&#x27;|awk &#x27;</span>\&#x27;<span class="string">&#x27;&#123;print &quot;scontrol show job &quot;$1&#125;&#x27;</span>\&#x27;<span class="string">&#x27;|sh|grep &quot;Command&quot;|sort|uniq -c&#x27;</span>
+
+<span class="comment"># quota</span>
+<span class="built_in">alias</span> quota=<span class="string">&#x27;mmlsquota -u chenguangji --block-size auto;mmlsquota -g zhanglab --block-size auto;echo &quot;&quot;;df -h ./&#x27;</span></code></pre>
+
+<p><strong>我最为常用的命令有：<code>ta</code>、<code>sq</code>、<code>sdir</code>、<code>quota</code>以及<code>..</code>与<code>.3</code>。</strong></p>
+<h1 id="2-B10K-数据与-Codex-bin-工作流（新增）"><a href="#2-B10K-数据与-Codex-bin-工作流（新增）" class="headerlink" title="2. B10K 数据与 Codex_bin 工作流（新增）"></a>2. B10K 数据与 Codex_bin 工作流（新增）</h1><p>下面的内容是在原教程基础上的补充，介绍 B10K Family Phase 数据来源，以及 <code>ChenGuangji/Codex_bin</code> 中 FASTA、phylogeny 和 trait 相关脚本的基本用法。命令默认在 <code>Codex_bin</code> 仓库根目录运行。</p>
+<p>一个常见的基础流程是：</p>
+<pre><code class="highlight text">FASTA ID 整理与序列检查
+        ↓
+CDS 翻译、蛋白比对和 codon projection
+        ↓
+系统树裁剪、格式整理和重根
+        ↓
+B10K 类群分组与绘图
+        ↓
+性状表整理、缺失值填补和比较分析</code></pre>
+
+<p>脚本成功运行只说明输入格式和程序接口基本正确，不等于相关生物学结论已经完成验证。</p>
+<h2 id="2-1-数据和分析流程从哪里获得？"><a href="#2-1-数据和分析流程从哪里获得？" class="headerlink" title="2.1 数据和分析流程从哪里获得？"></a>2.1 数据和分析流程从哪里获得？</h2><p>本部分主要对应B10K Family Phase 的数据和分析流程来源于这篇文章：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.nature.com/articles/s41586-024-07323-1">Complexity of avian evolution revealed by family-level genomes</a></li>
+</ul>
+<p>论文的支撑数据和分析材料，包括相关数据文件与脚本，可以在下面的长期存档中找到：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://doi.org/10.17894/ucph.85624f66-c8e5-4b89-8e8a-fe984ca89e4a">Family Phase supporting data and scripts</a></li>
+</ul>
+<p>良渚集群内部也下载了一份工作镜像：</p>
+<pre><code class="highlight text">[mask]/B10K/B10K_PMO/02.Family_Phase/Nature2024/B10K/data_upload/</code></pre>
+
+<p>该路径仅供具有相应集群和项目权限的成员访问。正式分析时应记录 DOI 存档中的数据版本和说明，不要只记录内部复制路径；也不要把受限数据或未经确认的大文件重新公开上传。</p>
+<h2 id="2-2-Codex-bin-的代码结构"><a href="#2-2-Codex-bin-的代码结构" class="headerlink" title="2.2 Codex_bin 的代码结构"></a>2.2 Codex_bin 的代码结构</h2><p>仓库把通用函数和具体工作流分开保存：</p>
+<pre><code class="highlight text">src/R/                         # 可复用 R 函数
+src/python/for_codex_utils/    # 轻依赖 Python 函数
+workflows/                     # 文件输入、参数和结果输出</code></pre>
+
+<p>B10K 树图相关文件为：</p>
+<pre><code class="highlight text">src/R/phylogeny/clade_grouping.R
+workflows/B10K/363_clade_tree.R</code></pre>
+
+<p>前者负责读取和校验系统树及分组表，后者保存 B10K 的类群颜色、扇形布局和输出参数。</p>
+<h2 id="2-3-准备环境"><a href="#2-3-准备环境" class="headerlink" title="2.3 准备环境"></a>2.3 准备环境</h2><p>基础 R 依赖：</p>
+<pre><code class="highlight r">install.packages<span class="punctuation">(</span><span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;ape&quot;</span><span class="punctuation">,</span> <span class="string">&quot;phangorn&quot;</span><span class="punctuation">,</span> <span class="string">&quot;ggplot2&quot;</span><span class="punctuation">)</span><span class="punctuation">)</span>
+
+<span class="keyword">if</span> <span class="punctuation">(</span><span class="operator">!</span>requireNamespace<span class="punctuation">(</span><span class="string">&quot;BiocManager&quot;</span><span class="punctuation">,</span> quietly <span class="operator">=</span> <span class="literal">TRUE</span><span class="punctuation">)</span><span class="punctuation">)</span> <span class="punctuation">&#123;</span>
+  install.packages<span class="punctuation">(</span><span class="string">&quot;BiocManager&quot;</span><span class="punctuation">)</span>
+<span class="punctuation">&#125;</span>
+BiocManager<span class="operator">::</span>install<span class="punctuation">(</span><span class="string">&quot;ggtree&quot;</span><span class="punctuation">)</span></code></pre>
+
+<p>性状分析可能还需要：</p>
+<pre><code class="highlight r">install.packages<span class="punctuation">(</span><span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;missForest&quot;</span><span class="punctuation">,</span> <span class="string">&quot;phytools&quot;</span><span class="punctuation">)</span><span class="punctuation">)</span></code></pre>
+
+<p>FASTA 整理脚本只使用 Python 标准库。MAFFT 或 MUSCLE 需要单独安装，并确保程序位于 <code>PATH</code>。</p>
+<p>可先查看帮助：</p>
+<pre><code class="highlight bash">python3 workflows/sequences/fasta_tool.py --<span class="built_in">help</span>
+python3 workflows/sequences/normalize_fasta.py --<span class="built_in">help</span>
+python3 workflows/sequences/translate_cds.py --<span class="built_in">help</span>
+
+Rscript workflows/trait/impute_trait_table.R
+Rscript workflows/phylogeny/extract_subtree.R
+Rscript workflows/phylogeny/reroot_tree.R</code></pre>
+
+<h2 id="2-4-FASTA：先统一-ID"><a href="#2-4-FASTA：先统一-ID" class="headerlink" title="2.4 FASTA：先统一 ID"></a>2.4 FASTA：先统一 ID</h2><p>同一个物种在 CDS、蛋白、alignment、tree 和 trait table 中使用不同 ID，是比较基因组分析中常见的问题。建议先统一 ID，并保留旧 ID 到新 ID 的映射。</p>
+<h3 id="2-4-1-规范-FASTA-ID"><a href="#2-4-1-规范-FASTA-ID" class="headerlink" title="2.4.1 规范 FASTA ID"></a>2.4.1 规范 FASTA ID</h3><pre><code class="highlight bash">python3 workflows/sequences/normalize_fasta.py \
+  data/raw_sequences.fa \
+  results/sequences.normalized.fa \
+  --input-key first \
+  --replacement-character _ \
+  --max-id-length 60 \
+  --mapping-file results/sequences.id_mapping.tsv</code></pre>
+
+<p>工作流会写出规范化 FASTA，以及包含 <code>source_id</code> 和 <code>normalized_id</code> 的映射表。需要显式替换残基字符时，可以重复使用 <code>--mask</code>：</p>
+<pre><code class="highlight bash">python3 workflows/sequences/normalize_fasta.py \
+  data/raw_sequences.fa \
+  results/sequences.masked.fa \
+  --mask <span class="string">&#x27;?=N&#x27;</span> \
+  --mask <span class="string">&#x27;X=N&#x27;</span></code></pre>
+
+<p>替换前应确认序列类型和缺失字符的真实含义。</p>
+<h3 id="2-4-2-查看序列统计"><a href="#2-4-2-查看序列统计" class="headerlink" title="2.4.2 查看序列统计"></a>2.4.2 查看序列统计</h3><pre><code class="highlight bash">python3 workflows/sequences/fasta_tool.py stats \
+  results/sequences.normalized.fa \
+  results/sequences.stats.tsv</code></pre>
+
+<p>默认统计 ID、序列长度、去除 gap 后长度、GC 比例、<code>N</code> 数量和 <code>X</code> 数量，可用于快速寻找异常序列。</p>
+<h3 id="2-4-3-按-ID-提取序列"><a href="#2-4-3-按-ID-提取序列" class="headerlink" title="2.4.3 按 ID 提取序列"></a>2.4.3 按 ID 提取序列</h3><p>准备每行一个 ID 的 <code>selected_ids.txt</code>，然后运行：</p>
+<pre><code class="highlight bash">python3 workflows/sequences/fasta_tool.py subset \
+  results/sequences.normalized.fa \
+  data/selected_ids.txt \
+  results/selected.fa \
+  --missing error</code></pre>
+
+<p>调试时可以使用 <code>--missing drop</code>；正式分析更建议先使用 <code>error</code>，避免样本被静默删除。</p>
+<h3 id="2-4-4-提取区间和反向互补序列"><a href="#2-4-4-提取区间和反向互补序列" class="headerlink" title="2.4.4 提取区间和反向互补序列"></a>2.4.4 提取区间和反向互补序列</h3><pre><code class="highlight bash">python3 workflows/sequences/fasta_tool.py subseq \
+  data/genome.fa \
+  results/region.revcomp.fa \
+  --record chromosome_1 \
+  --start 1001 \
+  --end 2000 \
+  --reverse-complement</code></pre>
+
+<p>这里的坐标是 1-based closed。和 BED 等 0-based half-open 文件联用时，必须先转换或确认坐标定义。</p>
+<h2 id="2-5-从-CDS-到-codon-alignment"><a href="#2-5-从-CDS-到-codon-alignment" class="headerlink" title="2.5 从 CDS 到 codon alignment"></a>2.5 从 CDS 到 codon alignment</h2><h3 id="2-5-1-翻译-CDS"><a href="#2-5-1-翻译-CDS" class="headerlink" title="2.5.1 翻译 CDS"></a>2.5.1 翻译 CDS</h3><pre><code class="highlight bash">python3 workflows/sequences/translate_cds.py \
+  data/ortholog.cds.fa \
+  results/ortholog.aa.fa \
+  --frame 0 \
+  --incomplete error \
+  --internal-stop error \
+  --terminal-stop trim</code></pre>
+
+<p><code>--frame</code> 可取 <code>0</code>、<code>1</code> 或 <code>2</code>。正式分析建议先使用严格策略检查不完整密码子和内部终止密码子，而不是为了继续运行而直接忽略异常。</p>
+<h3 id="2-5-2-蛋白序列比对"><a href="#2-5-2-蛋白序列比对" class="headerlink" title="2.5.2 蛋白序列比对"></a>2.5.2 蛋白序列比对</h3><p>使用 MAFFT：</p>
+<pre><code class="highlight bash">bash workflows/sequences/run_sequence_alignment.sh \
+  results/ortholog.aa.fa \
+  results/ortholog.aa.aln.fa \
+  mafft \
+  16 \
+  --auto</code></pre>
+
+<p>同一脚本也支持 <code>muscle3</code> 和 <code>muscle5</code>。脚本会检查输入文件、线程数和外部程序，但 alignment 方法及参数仍需要根据数据特点选择。</p>
+<h3 id="2-5-3-投影回密码子-alignment"><a href="#2-5-3-投影回密码子-alignment" class="headerlink" title="2.5.3 投影回密码子 alignment"></a>2.5.3 投影回密码子 alignment</h3><pre><code class="highlight bash">python3 workflows/sequences/protein_alignment_to_codon.py \
+  results/ortholog.aa.aln.fa \
+  data/ortholog.cds.fa \
+  results/ortholog.codon.aln.fa \
+  --missing error \
+  --trailing-cds error</code></pre>
+
+<p>蛋白 alignment 和 CDS 的 ID 必须一致。进入 PAML 或其他 codon 模型前，应检查序列长度、reading frame、内部终止密码子和异常 gap 区域。</p>
+<h2 id="2-6-系统树裁剪、整理和重根"><a href="#2-6-系统树裁剪、整理和重根" class="headerlink" title="2.6 系统树裁剪、整理和重根"></a>2.6 系统树裁剪、整理和重根</h2><p>树中的 tip 名称应与 FASTA、分组表和性状表完全一致，包括大小写、下划线和版本后缀。</p>
+<h3 id="2-6-1-提取目标物种子树"><a href="#2-6-1-提取目标物种子树" class="headerlink" title="2.6.1 提取目标物种子树"></a>2.6.1 提取目标物种子树</h3><p>准备每行一个 tip 的 <code>tips.txt</code>：</p>
+<pre><code class="highlight bash">Rscript workflows/phylogeny/extract_subtree.R \
+  data/b10k_tree.nwk \
+  data/tips.txt \
+  results/b10k_subset.nwk</code></pre>
+
+<p>缺失 tip 的策略可以选择 <code>error</code>、<code>warn</code> 或 <code>ignore</code>。正式分析建议先使用默认的 <code>error</code>。</p>
+<h3 id="2-6-2-处理多分叉和节点标签"><a href="#2-6-2-处理多分叉和节点标签" class="headerlink" title="2.6.2 处理多分叉和节点标签"></a>2.6.2 处理多分叉和节点标签</h3><pre><code class="highlight bash">Rscript workflows/phylogeny/resolve_polytomies.R \
+  results/b10k_subset.nwk \
+  results/b10k_subset.resolved.nwk \
+  auto \
+  FALSE \
+  - \
+  - \
+  _ \
+  TRUE \
+  Node \
+  FALSE \
+  FALSE \
+  FALSE \
+  results/b10k_subset.tips.txt</code></pre>
+
+<p>如果使用随机多分叉解析，应提供固定 seed，并明确说明随机解析不代表有数据支持的拓扑关系。</p>
+<h3 id="2-6-3-使用外群重根"><a href="#2-6-3-使用外群重根" class="headerlink" title="2.6.3 使用外群重根"></a>2.6.3 使用外群重根</h3><pre><code class="highlight bash">Rscript workflows/phylogeny/reroot_tree.R \
+  results/b10k_subset.resolved.nwk \
+  results/b10k_subset.rooted.nwk \
+  outgroup \
+  data/outgroups.txt \
+  FALSE \
+  FALSE \
+  -</code></pre>
+
+<p>使用 midpoint rooting：</p>
+<pre><code class="highlight bash">Rscript workflows/phylogeny/reroot_tree.R \
+  results/b10k_subset.resolved.nwk \
+  results/b10k_subset.midpoint.nwk \
+  midpoint \
+  - \
+  FALSE \
+  FALSE \
+  -</code></pre>
+
+<p>midpoint 模式需要 <code>phangorn</code>，但 midpoint rooting 不能替代真实的外群证据。</p>
+<h2 id="2-7-绘制-B10K-363-类群系统树"><a href="#2-7-绘制-B10K-363-类群系统树" class="headerlink" title="2.7 绘制 B10K 363 类群系统树"></a>2.7 绘制 B10K 363 类群系统树</h2><p>分组表默认包含两列：</p>
+<pre><code class="highlight csv">Sample,Clade
+species_A,Palaeognathae
+species_B,Galloanseres
+species_C,Australaves
+species_D,Afroaves</code></pre>
+
+<p>新建 <code>run_b10k_tree.R</code>：</p>
+<pre><code class="highlight r">source<span class="punctuation">(</span><span class="string">&quot;src/R/phylogeny/clade_grouping.R&quot;</span><span class="punctuation">)</span>
+source<span class="punctuation">(</span><span class="string">&quot;workflows/B10K/363_clade_tree.R&quot;</span><span class="punctuation">)</span>
+
+run_b10k_363_clade_tree<span class="punctuation">(</span>
+  tree_file <span class="operator">=</span> <span class="string">&quot;results/b10k_subset.rooted.nwk&quot;</span><span class="punctuation">,</span>
+  group_file <span class="operator">=</span> <span class="string">&quot;data/b10k_groups.csv&quot;</span><span class="punctuation">,</span>
+  output_file <span class="operator">=</span> <span class="string">&quot;results/b10k_clades.pdf&quot;</span><span class="punctuation">,</span>
+  width <span class="operator">=</span> <span class="number">12</span><span class="punctuation">,</span>
+  height <span class="operator">=</span> <span class="number">12</span><span class="punctuation">,</span>
+  show_legend <span class="operator">=</span> <span class="literal">FALSE</span>
+<span class="punctuation">)</span></code></pre>
+
+<p>运行：</p>
+<pre><code class="highlight bash">Rscript run_b10k_tree.R</code></pre>
+
+<p>当前预设类群包括：</p>
+<pre><code class="highlight text">Palaeognathae
+Galloanseres
+Mirandornithes
+Columbimorphae
+Otidimorphae
+Opisthocomiformes
+Cursorimorphae
+Strisores
+Phaethontimorphae
+Aequornithes
+Afroaves
+Australaves</code></pre>
+
+<p>CSV 中的 <code>Clade</code> 拼写应与预设名称一致；未分组枝条默认显示为黑色。</p>
+<h2 id="2-8-Trait：整理和填补混合型性状表"><a href="#2-8-Trait：整理和填补混合型性状表" class="headerlink" title="2.8 Trait：整理和填补混合型性状表"></a>2.8 Trait：整理和填补混合型性状表</h2><p>示例性状表：</p>
+<pre><code class="highlight text">Species	BodyMass	WingLength	Habitat
+species_A	125.3	88.1	Forest
+species_B	NA	91.7	Grassland
+species_C	84.6	NA	Forest</code></pre>
+
+<h3 id="2-8-1-简单填补用于流程检查"><a href="#2-8-1-简单填补用于流程检查" class="headerlink" title="2.8.1 简单填补用于流程检查"></a>2.8.1 简单填补用于流程检查</h3><pre><code class="highlight bash">Rscript workflows/trait/impute_trait_table.R \
+  data/traits.tsv \
+  results/traits_simple \
+  Species \
+  BodyMass,WingLength,Habitat \
+  simple</code></pre>
+
+<p>简单填补默认对数值列使用 median，对分类列使用最常见水平。它适合检查接口，但不能自动替代正式研究中的缺失值模型。</p>
+<p>主要输出包括：</p>
+<pre><code class="highlight text">results/traits_simple.imputed.csv
+results/traits_simple.missingness.csv
+results/traits_simple.replacements.csv
+results/traits_simple.parameters.csv</code></pre>
+
+<h3 id="2-8-2-使用-missForest"><a href="#2-8-2-使用-missForest" class="headerlink" title="2.8.2 使用 missForest"></a>2.8.2 使用 missForest</h3><pre><code class="highlight bash">Rscript workflows/trait/impute_trait_table.R \
+  data/traits.tsv \
+  results/traits_missforest \
+  Species \
+  BodyMass,WingLength,Habitat \
+  missforest \
+  data/factor_levels.csv \
+  BodyMass,WingLength \
+  median \
+  error \
+  error \
+  error \
+  1234</code></pre>
+
+<p><code>factor_levels.csv</code> 示例：</p>
+<pre><code class="highlight csv">column,level,order
+Habitat,Forest,1
+Habitat,Grassland,2
+Habitat,Wetland,3</code></pre>
+
+<p>应记录参与填补的列、factor level、随机 seed、缺失比例、OOB error，以及是否进行了 log10 转换。</p>
+<h2 id="2-9-连续性状与系统树分析"><a href="#2-9-连续性状与系统树分析" class="headerlink" title="2.9 连续性状与系统树分析"></a>2.9 连续性状与系统树分析</h2><h3 id="2-9-1-祖先性状重建"><a href="#2-9-1-祖先性状重建" class="headerlink" title="2.9.1 祖先性状重建"></a>2.9.1 祖先性状重建</h3><pre><code class="highlight bash">Rscript workflows/phylogeny/analyze_continuous_trait.R \
+  results/b10k_subset.rooted.nwk \
+  results/traits_missforest.imputed.csv \
+  results/body_mass \
+  Species \
+  BodyMass \
+  - \
+  asr \
+  error \
+  error \
+  3</code></pre>
+
+<p>脚本会先按物种 ID 对齐树和性状表，并输出对齐数据、tip 和 internal node 的重建结果及参数记录。</p>
+<h3 id="2-9-2-Phylogenetic-ANOVA"><a href="#2-9-2-Phylogenetic-ANOVA" class="headerlink" title="2.9.2 Phylogenetic ANOVA"></a>2.9.2 Phylogenetic ANOVA</h3><p>性状表需额外包含分组列，例如 <code>Clade</code>：</p>
+<pre><code class="highlight bash">Rscript workflows/phylogeny/analyze_continuous_trait.R \
+  results/b10k_subset.rooted.nwk \
+  results/traits_missforest.imputed.csv \
+  results/body_mass_by_clade \
+  Species \
+  BodyMass \
+  Clade \
+  both \
+  error \
+  error \
+  3 \
+  1000 \
+  TRUE \
+  holm \
+  1234</code></pre>
+
+<p>这个例子同时运行 ancestral reconstruction 和 phylogenetic ANOVA，使用 1,000 次模拟、post-hoc comparison、Holm 校正和固定 seed。</p>
+<p>模型运行成功后仍需检查各组样本量、性状分布、异常值、树的枝长与根、缺失值处理以及分组的生物学合理性。</p>
+<h1 id="3-并行化处理：paralleltask-ng"><a href="#3-并行化处理：paralleltask-ng" class="headerlink" title="3. 并行化处理：paralleltask-ng"></a>3. 并行化处理：paralleltask-ng</h1><p>B10K 数据处理中经常需要执行几十到上千个彼此独立的任务，例如逐基因比对、逐基因树构建、逐物种统计或批量格式转换。<code>paralleltask-ng</code> 可以把一组命令拆分成独立子任务，并在本地或 SGE、PBS、Slurm、LSF 等调度系统中维持指定数量的并行任务。</p>
+<p>项目地址：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/ChenGuangji/ParallelTask">ChenGuangji&#x2F;ParallelTask</a></li>
+</ul>
+<h2 id="3-1-安装"><a href="#3-1-安装" class="headerlink" title="3.1 安装"></a>3.1 安装</h2><p>可以直接从 GitHub 安装当前版本：</p>
+<pre><code class="highlight bash">python3 -m pip install <span class="string">&quot;paralleltask-ng @ git+https://github.com/ChenGuangji/ParallelTask.git&quot;</span></code></pre>
+
+<p>安装后先确认命令可用：</p>
+<pre><code class="highlight bash">paralleltask-ng -h</code></pre>
+
+<p>如果集群不允许写系统 Python 环境，可以在虚拟环境或 Conda 环境中安装。安装命令需要系统中存在 <code>git</code>，并能够访问 GitHub。</p>
+<h2 id="3-2-准备任务文件"><a href="#3-2-准备任务文件" class="headerlink" title="3.2 准备任务文件"></a>3.2 准备任务文件</h2><p><code>paralleltask-ng</code> 的输入是一个命令集合文件。默认情况下，每一行形成一个独立子任务。例如创建 <code>test_all.sh</code>：</p>
+<pre><code class="highlight bash">python3 workflow_A.py sample_001 &gt; logs/sample_001.<span class="built_in">log</span> 2&gt;&amp;1
+python3 workflow_A.py sample_002 &gt; logs/sample_002.<span class="built_in">log</span> 2&gt;&amp;1
+python3 workflow_A.py sample_003 &gt; logs/sample_003.<span class="built_in">log</span> 2&gt;&amp;1</code></pre>
+
+<p>这些命令应当彼此独立，并写入不同的输出文件。不要让多个任务同时覆盖同一个临时文件或结果文件。正式提交前建议先检查：</p>
+<pre><code class="highlight bash"><span class="built_in">mkdir</span> -p logs
+bash -n test_all.sh
+<span class="built_in">head</span> -n 3 test_all.sh</code></pre>
+
+<p>还可以先复制少量命令到一个测试文件中运行，确认软件环境、输入路径和输出权限都正确，再提交完整任务列表。</p>
+<p>当一个子任务需要由多行命令组成时，可以通过 <code>-l</code> 或 <code>--lines</code> 指定每个子任务包含的行数。默认值为 <code>1</code>。</p>
+<h2 id="3-3-在-Slurm-上运行"><a href="#3-3-在-Slurm-上运行" class="headerlink" title="3.3 在 Slurm 上运行"></a>3.3 在 Slurm 上运行</h2><p>示例命令：</p>
+<pre><code class="highlight bash">paralleltask-ng \
+  -t slurm \
+  -m 10 \
+  -i 3 \
+  --global-maxjob 10 \
+  --submit-batch-size 5 \
+  --submit-interval 3 \
+  --submit-retry \
+  test_all.sh</code></pre>
+
+<p>等价的单行写法是：</p>
+<pre><code class="highlight bash">paralleltask-ng -t slurm -m 10 -i 3 --global-maxjob 10 --submit-batch-size 5 --submit-interval 3 --submit-retry test_all.sh</code></pre>
+
+<p>参数含义如下：</p>
+<ul>
+<li><code>-t slurm</code>：使用 Slurm 的 <code>sbatch</code>、<code>squeue</code> 和相关控制命令；</li>
+<li><code>-m 10</code>：本次 <code>paralleltask-ng</code> 进程最多同时维护 10 个任务；</li>
+<li><code>-i 3</code>：每隔 3 秒检查任务状态或进行后续提交；</li>
+<li><code>--global-maxjob 10</code>：根据 <code>squeue</code> 结果，将当前用户在 Slurm 中的全部任务数限制在 10 个以内，而不只计算本次运行提交的任务；</li>
+<li><code>--submit-batch-size 5</code>：每成功提交 5 个任务后暂停一次，避免短时间向调度器发送过多请求；</li>
+<li><code>--submit-interval 3</code>：每批提交之间暂停 3 秒；若不设置，则使用 <code>-i/--interval</code> 的值；</li>
+<li><code>--submit-retry</code>：当 <code>sbatch</code> 提交失败或无法解析任务 ID 时，间隔一段时间后持续重试，而不是立即退出；</li>
+<li><code>test_all.sh</code>：需要执行的命令集合文件。</li>
+</ul>
+<p>这里同时使用 <code>-m 10</code> 和 <code>--global-maxjob 10</code>。前者限制当前这次运行的并发数，后者限制当前用户在整个 Slurm 队列中的任务总数。例如用户已经有 6 个其他任务时，这次运行最多只能再占用约 4 个名额，直到已有任务结束。</p>
+<h2 id="3-4-CPU-和内存"><a href="#3-4-CPU-和内存" class="headerlink" title="3.4 CPU 和内存"></a>3.4 CPU 和内存</h2><p>若不显式设置，当前 CLI 默认每个子任务申请 1 个 CPU 和 3G 内存。可以使用下面的参数覆盖：</p>
+<pre><code class="highlight bash">paralleltask-ng \
+  -t slurm \
+  -p 4 \
+  -M 16G \
+  -m 10 \
+  test_all.sh</code></pre>
+
+<p>其中：</p>
+<ul>
+<li><code>-p 4</code>：每个子任务申请 4 个 CPU；</li>
+<li><code>-M 16G</code>：每个子任务申请 16G 内存。</li>
+</ul>
+<p>资源参数应与命令实际使用方式一致。为单线程程序盲目申请多个 CPU 不会自动提升速度；内存申请过小可能导致任务被调度器终止，申请过大则可能延长排队时间。</p>
+<h2 id="3-5-运行目录、日志和失败任务"><a href="#3-5-运行目录、日志和失败任务" class="headerlink" title="3.5 运行目录、日志和失败任务"></a>3.5 运行目录、日志和失败任务</h2><p>运行 <code>test_all.sh</code> 后，程序会创建相应的工作目录：</p>
+<pre><code class="highlight text">test_all.sh.work/</code></pre>
+
+<p>其中保存拆分后的子任务脚本及相关运行文件。程序自身也会写日志；可以通过 <code>--log FILE</code> 指定日志文件。建议同时让每条任务命令把标准输出和标准错误写到明确的文件中，这样更容易定位具体失败的样本或基因。</p>
+<p>程序支持跳过已经成功的子任务并重新执行未完成任务。<code>-r/--rerun</code> 控制失败子任务的重新运行轮数，默认最多重新运行 3 轮。重启 Slurm 流程时，程序还会查询活动任务，并尝试根据子任务脚本路径恢复仍在排队或运行的任务，避免重复提交。</p>
+<h2 id="3-6-使用-submit-retry-的注意事项"><a href="#3-6-使用-submit-retry-的注意事项" class="headerlink" title="3.6 使用 --submit-retry 的注意事项"></a>3.6 使用 <code>--submit-retry</code> 的注意事项</h2><p><code>--submit-retry</code> 会对提交失败持续重试，适合调度器暂时繁忙、网络瞬时异常或提交服务短暂不可用的情况。但如果失败源于长期存在的错误，例如：</p>
+<ul>
+<li>Slurm 参数或集群配置不正确；</li>
+<li>分区、账户或资源申请无效；</li>
+<li>输入脚本不存在；</li>
+<li>用户达到无法恢复的配额或权限限制；</li>
+</ul>
+<p>程序可能一直重复尝试。看到持续失败时，应检查日志和 <code>sbatch</code> 错误信息，并在必要时使用 <code>Ctrl+C</code> 停止主程序，修正问题后再重新运行。</p>
+<p>主程序收到终止信号时会尝试停止已经提交的子任务，但在大型任务批次中仍建议随后使用 <code>squeue -u &quot;$USER&quot;</code> 确认队列状态。</p>
+<h2 id="3-7-推荐的使用步骤"><a href="#3-7-推荐的使用步骤" class="headerlink" title="3.7 推荐的使用步骤"></a>3.7 推荐的使用步骤</h2><p>一个相对稳妥的提交顺序是：</p>
+<ol>
+<li>检查任务文件语法与输入路径；</li>
+<li>用 2—3 个任务进行小规模测试；</li>
+<li>确认单个任务的 CPU、内存和运行时间；</li>
+<li>设置合理的 <code>-m</code> 与 <code>--global-maxjob</code>；</li>
+<li>提交完整任务文件；</li>
+<li>查看主日志、子任务日志和 <code>squeue</code>；</li>
+<li>对失败任务先判断原因，再决定是否重跑。</li>
+</ol>
+<p>并行化只负责调度彼此独立的命令，不会自动判断分析步骤之间的依赖关系。存在前后依赖的命令应合并为同一个子任务，或拆成多个阶段，在上一阶段全部完成并验证后再启动下一阶段。</p>
+</article><aside class="article-toc"><p class="article-toc-label">On this page</p><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-Bash"><span class="toc-text">1. Bash</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="toc-text">1.1 环境变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-%E5%B8%B8%E7%94%A8%E7%BC%A9%E5%86%99"><span class="toc-text">1.2 常用缩写</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-B10K-%E6%95%B0%E6%8D%AE%E4%B8%8E-Codex-bin-%E5%B7%A5%E4%BD%9C%E6%B5%81%EF%BC%88%E6%96%B0%E5%A2%9E%EF%BC%89"><span class="toc-text">2. B10K 数据与 Codex_bin 工作流（新增）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-%E6%95%B0%E6%8D%AE%E5%92%8C%E5%88%86%E6%9E%90%E6%B5%81%E7%A8%8B%E4%BB%8E%E5%93%AA%E9%87%8C%E8%8E%B7%E5%BE%97%EF%BC%9F"><span class="toc-text">2.1 数据和分析流程从哪里获得？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-Codex-bin-%E7%9A%84%E4%BB%A3%E7%A0%81%E7%BB%93%E6%9E%84"><span class="toc-text">2.2 Codex_bin 的代码结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-%E5%87%86%E5%A4%87%E7%8E%AF%E5%A2%83"><span class="toc-text">2.3 准备环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-4-FASTA%EF%BC%9A%E5%85%88%E7%BB%9F%E4%B8%80-ID"><span class="toc-text">2.4 FASTA：先统一 ID</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-1-%E8%A7%84%E8%8C%83-FASTA-ID"><span class="toc-text">2.4.1 规范 FASTA ID</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-2-%E6%9F%A5%E7%9C%8B%E5%BA%8F%E5%88%97%E7%BB%9F%E8%AE%A1"><span class="toc-text">2.4.2 查看序列统计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-3-%E6%8C%89-ID-%E6%8F%90%E5%8F%96%E5%BA%8F%E5%88%97"><span class="toc-text">2.4.3 按 ID 提取序列</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-4-%E6%8F%90%E5%8F%96%E5%8C%BA%E9%97%B4%E5%92%8C%E5%8F%8D%E5%90%91%E4%BA%92%E8%A1%A5%E5%BA%8F%E5%88%97"><span class="toc-text">2.4.4 提取区间和反向互补序列</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-5-%E4%BB%8E-CDS-%E5%88%B0-codon-alignment"><span class="toc-text">2.5 从 CDS 到 codon alignment</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-1-%E7%BF%BB%E8%AF%91-CDS"><span class="toc-text">2.5.1 翻译 CDS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-2-%E8%9B%8B%E7%99%BD%E5%BA%8F%E5%88%97%E6%AF%94%E5%AF%B9"><span class="toc-text">2.5.2 蛋白序列比对</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-3-%E6%8A%95%E5%BD%B1%E5%9B%9E%E5%AF%86%E7%A0%81%E5%AD%90-alignment"><span class="toc-text">2.5.3 投影回密码子 alignment</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-6-%E7%B3%BB%E7%BB%9F%E6%A0%91%E8%A3%81%E5%89%AA%E3%80%81%E6%95%B4%E7%90%86%E5%92%8C%E9%87%8D%E6%A0%B9"><span class="toc-text">2.6 系统树裁剪、整理和重根</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-6-1-%E6%8F%90%E5%8F%96%E7%9B%AE%E6%A0%87%E7%89%A9%E7%A7%8D%E5%AD%90%E6%A0%91"><span class="toc-text">2.6.1 提取目标物种子树</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-6-2-%E5%A4%84%E7%90%86%E5%A4%9A%E5%88%86%E5%8F%89%E5%92%8C%E8%8A%82%E7%82%B9%E6%A0%87%E7%AD%BE"><span class="toc-text">2.6.2 处理多分叉和节点标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-6-3-%E4%BD%BF%E7%94%A8%E5%A4%96%E7%BE%A4%E9%87%8D%E6%A0%B9"><span class="toc-text">2.6.3 使用外群重根</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-7-%E7%BB%98%E5%88%B6-B10K-363-%E7%B1%BB%E7%BE%A4%E7%B3%BB%E7%BB%9F%E6%A0%91"><span class="toc-text">2.7 绘制 B10K 363 类群系统树</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-8-Trait%EF%BC%9A%E6%95%B4%E7%90%86%E5%92%8C%E5%A1%AB%E8%A1%A5%E6%B7%B7%E5%90%88%E5%9E%8B%E6%80%A7%E7%8A%B6%E8%A1%A8"><span class="toc-text">2.8 Trait：整理和填补混合型性状表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-8-1-%E7%AE%80%E5%8D%95%E5%A1%AB%E8%A1%A5%E7%94%A8%E4%BA%8E%E6%B5%81%E7%A8%8B%E6%A3%80%E6%9F%A5"><span class="toc-text">2.8.1 简单填补用于流程检查</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-8-2-%E4%BD%BF%E7%94%A8-missForest"><span class="toc-text">2.8.2 使用 missForest</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-9-%E8%BF%9E%E7%BB%AD%E6%80%A7%E7%8A%B6%E4%B8%8E%E7%B3%BB%E7%BB%9F%E6%A0%91%E5%88%86%E6%9E%90"><span class="toc-text">2.9 连续性状与系统树分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-9-1-%E7%A5%96%E5%85%88%E6%80%A7%E7%8A%B6%E9%87%8D%E5%BB%BA"><span class="toc-text">2.9.1 祖先性状重建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-9-2-Phylogenetic-ANOVA"><span class="toc-text">2.9.2 Phylogenetic ANOVA</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-%E5%B9%B6%E8%A1%8C%E5%8C%96%E5%A4%84%E7%90%86%EF%BC%9Aparalleltask-ng"><span class="toc-text">3. 并行化处理：paralleltask-ng</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-%E5%AE%89%E8%A3%85"><span class="toc-text">3.1 安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-%E5%87%86%E5%A4%87%E4%BB%BB%E5%8A%A1%E6%96%87%E4%BB%B6"><span class="toc-text">3.2 准备任务文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-3-%E5%9C%A8-Slurm-%E4%B8%8A%E8%BF%90%E8%A1%8C"><span class="toc-text">3.3 在 Slurm 上运行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-4-CPU-%E5%92%8C%E5%86%85%E5%AD%98"><span class="toc-text">3.4 CPU 和内存</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-5-%E8%BF%90%E8%A1%8C%E7%9B%AE%E5%BD%95%E3%80%81%E6%97%A5%E5%BF%97%E5%92%8C%E5%A4%B1%E8%B4%A5%E4%BB%BB%E5%8A%A1"><span class="toc-text">3.5 运行目录、日志和失败任务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-6-%E4%BD%BF%E7%94%A8-submit-retry-%E7%9A%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-text">3.6 使用 --submit-retry 的注意事项</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-7-%E6%8E%A8%E8%8D%90%E7%9A%84%E4%BD%BF%E7%94%A8%E6%AD%A5%E9%AA%A4"><span class="toc-text">3.7 推荐的使用步骤</span></a></li></ol></li></ol></aside></div><nav class="article-navigation" aria-label="Adjacent posts"><a class="article-navigation-item" href="/20230401/SETvsEES/"><small>Previous</small><strong>演化论的争论：SET与EES</strong></a></nav><section class="article-comments"><h2>Discussion</h2><p>Comments are stored in the public GitHub repository ChenGuangji/myBlogRepo.</p><script async repo="ChenGuangji/myBlogRepo" src="https://utteranc.es/client.js" issue-term="pathname" theme="github-light"></script></section></div></article></main><footer class="site-footer"><div class="site-shell site-footer-inner"><div class="site-footer-copy"><strong>Guangji Chen</strong><p>Evolutionary genomics, avian radiation and speciation.</p></div><div class="site-footer-links"><a title="Google Scholar" aria-label="Google Scholar" target="_blank" rel="noopener noreferrer" href="https://scholar.google.com/citations?user=OnxOEWoAAAAJ"><i class="iconfont icon-Aboutme"></i></a><a title="GitHub" aria-label="GitHub" target="_blank" rel="noopener noreferrer" href="https://github.com/ChenGuangji"><i class="iconfont icon-github"></i></a><a title="Email" aria-label="Email Guangji Chen" href="mailto:chenguangji38@gmail.com"><i class="iconfont icon-email"></i></a></div><p class="site-footer-meta">© 2026 Guangji Chen · Built with Hexo</p></div></footer><script src="/js/jquery-3.6.1.min.js"></script><script src="/js/jquery-fancybox.min.js"></script><script src="/js/img_zoom.js"></script><script src="/js/post.js"></script></body></html>

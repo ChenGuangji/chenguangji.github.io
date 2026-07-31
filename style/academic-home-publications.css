@@ -1,0 +1,82 @@
+/* Homepage selected-publication wrapping fixes.
+ * Desktop keeps author strings and arrows on one line.
+ */
+.section-heading-row > .text-link {
+  flex: 0 0 auto;
+  min-width: max-content;
+  white-space: nowrap;
+}
+
+.selected-publication {
+  grid-template-columns: 142px minmax(260px, 1fr) max-content max-content !important;
+  column-gap: 14px !important;
+  row-gap: 6px !important;
+}
+
+.selected-publication > p {
+  max-width: none;
+  white-space: nowrap;
+}
+
+.selected-publication > a {
+  display: inline-flex;
+  min-width: max-content;
+  align-items: center;
+  justify-content: flex-end;
+  white-space: nowrap;
+}
+
+@media (max-width: 1100px) {
+  .selected-publication {
+    grid-template-columns: 130px minmax(0, 1fr) max-content !important;
+    align-items: center;
+  }
+
+  .selected-publication .journal-mark {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+  }
+
+  .selected-publication .selected-publication-main {
+    grid-column: 2 / -1;
+    grid-row: 1;
+  }
+
+  .selected-publication > p {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  .selected-publication > a {
+    grid-column: 3;
+    grid-row: 2;
+  }
+}
+
+@media (max-width: 760px) {
+  .section-heading-row {
+    align-items: flex-start;
+  }
+
+  .selected-publication {
+    grid-template-columns: 1fr !important;
+  }
+
+  .selected-publication .journal-mark,
+  .selected-publication .selected-publication-main,
+  .selected-publication > p,
+  .selected-publication > a {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  .selected-publication > a {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 540px) {
+  .selected-publication > p {
+    white-space: normal;
+  }
+}

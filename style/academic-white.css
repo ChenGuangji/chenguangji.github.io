@@ -1,0 +1,256 @@
+/* Final white-first colour system.
+ * White is the canvas and the background behind text.
+ * Black carries hierarchy and emphasis.
+ * Grey is limited to borders, separators and image backdrops.
+ */
+:root {
+  --academic-bg: #ffffff;
+  --academic-surface: #ffffff;
+  --academic-ink: #000000;
+  --academic-text: #111111;
+  --academic-muted: #111111;
+  --academic-line: #d9d9d9;
+  --academic-accent: #000000;
+  --academic-accent-dark: #000000;
+  --academic-tint: #ffffff;
+  --academic-warm: #f8f8f8;
+  --academic-shadow: 0 10px 28px rgba(0, 0, 0, 0.045);
+}
+
+html,
+body.site-body,
+.site-main,
+.home-hero,
+.home-section,
+.home-section-tinted,
+.academic-page,
+.academic-article,
+.academic-listing,
+.site-body > footer.site-footer {
+  color-scheme: light;
+  background: #fff !important;
+}
+
+.site-header {
+  border-bottom-color: #dedede !important;
+  background: rgba(255, 255, 255, 0.98) !important;
+}
+
+/* Keep interface copy black rather than grey. */
+.site-body,
+.site-brand,
+.site-brand-field,
+.site-navigation-link,
+.home-role,
+.home-introduction,
+.home-facts dt,
+.home-facts dd,
+.section-heading > p:not(.eyebrow),
+.research-preview-card p,
+.selected-publication p,
+.home-writing-list span,
+.academic-page-lead,
+.listing-header > p:not(.eyebrow),
+.about-profile-card dt,
+.about-profile-card dd,
+.career-timeline p,
+.profile-link-grid span,
+.publication-entry p,
+.writing-card-meta,
+.writing-card p,
+.article-meta,
+.article-content,
+.article-content p,
+.article-content li,
+.article-content ol,
+.article-content ul,
+.article-toc a,
+.article-navigation-item small,
+.article-comments > p,
+.site-footer-copy p,
+.site-footer-meta {
+  color: #111 !important;
+}
+
+.site-body h1,
+.site-body h2,
+.site-body h3,
+.site-body h4,
+.site-body h5,
+.site-body h6,
+.site-body strong,
+.eyebrow,
+.panel-label,
+.publication-venue,
+.publication-year,
+.article-toc-label,
+.research-theme-number,
+.research-preview-card span,
+.career-timeline time,
+.publication-year-group > h2 {
+  color: #000 !important;
+}
+
+.site-body a:not(.primary-button):not(.light-button) {
+  color: #000 !important;
+}
+
+/* Every text-bearing panel stays white. */
+.research-preview-card,
+.selected-publication,
+.publication-entry,
+.writing-card,
+.article-toc,
+.article-navigation-item,
+.profile-link-grid a,
+.career-timeline article,
+.research-context,
+.research-context-grid article,
+.about-profile-card,
+.about-profile-card dl,
+.research-paper-card,
+.research-paper-caption,
+.keyword-list li,
+.academic-tag,
+.academic-pagination .page-number,
+.academic-pagination .extend,
+.article-content blockquote,
+.article-content code,
+.article-content pre,
+.article-content table,
+.article-content th,
+.article-content td {
+  background: #fff !important;
+}
+
+/* Grey describes the frame, not the page. */
+.research-preview-card,
+.selected-publication,
+.publication-entry,
+.writing-card,
+.article-toc,
+.article-navigation-item,
+.profile-link-grid a,
+.research-context,
+.research-context-grid article,
+.about-profile-card,
+.research-paper-card,
+.keyword-list li,
+.academic-tag,
+.academic-pagination .page-number,
+.academic-pagination .extend {
+  border-color: #d9d9d9 !important;
+  box-shadow: none !important;
+}
+
+.home-section-tinted,
+.research-paper-showcase,
+.academic-page-header,
+.article-header,
+.listing-header,
+.home-facts,
+.home-writing-list,
+.site-footer-meta {
+  border-color: #dedede !important;
+}
+
+.research-preview-card::before,
+.research-context::before,
+.publication-entry::before {
+  background: #f1f1f1 !important;
+}
+
+.publication-entry.featured::before {
+  background: #000 !important;
+}
+
+/* Images may sit on a very light neutral backing, but captions remain white. */
+.home-hero-artwork,
+.home-profile-image,
+.about-profile-card img,
+.writing-card-image,
+.research-paper-media,
+.research-paper-media img,
+.research-paper-media object,
+.research-paper-fallback {
+  background: #f8f8f8 !important;
+}
+
+.home-hero-artwork,
+.about-profile-card img,
+.research-paper-media {
+  border-color: #d9d9d9 !important;
+}
+
+/* Labels and tags use outlines rather than grey fills. */
+.publication-tags span,
+.journal-mark,
+.keyword-list li,
+.academic-tag,
+.academic-pagination .page-number,
+.academic-pagination .extend {
+  color: #000 !important;
+  border-color: #cfcfcf !important;
+  background: #fff !important;
+}
+
+.journal-mark-gigascience {
+  color: #fff !important;
+  border-color: #000 !important;
+  background: #000 !important;
+}
+
+.journal-mark-gigascience span,
+.journal-mark-gigascience small {
+  color: #fff !important;
+}
+
+.journal-mark-nature-communications span {
+  font-size: 0.78rem;
+  line-height: 1.08;
+}
+
+/* Hover uses black emphasis instead of darker grey surfaces. */
+.research-preview-card:hover,
+.selected-publication:hover,
+.publication-entry:hover,
+.writing-card:hover,
+.profile-link-grid a:hover,
+.research-paper-card:hover,
+.article-navigation-item:hover {
+  border-color: #000 !important;
+  background: #fff !important;
+  box-shadow: var(--academic-shadow) !important;
+}
+
+.primary-button {
+  color: #fff !important;
+  border-color: #000 !important;
+  background: #000 !important;
+}
+
+.secondary-button {
+  color: #000 !important;
+  border-color: #000 !important;
+  background: #fff !important;
+}
+
+.primary-button:hover,
+.primary-button:focus-visible {
+  color: #fff !important;
+  background: #222 !important;
+}
+
+.secondary-button:hover,
+.secondary-button:focus-visible {
+  color: #000 !important;
+  background: #fff !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  html,
+  body.site-body {
+    color-scheme: light;
+    background: #fff !important;
+  }
+}

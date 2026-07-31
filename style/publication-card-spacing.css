@@ -1,0 +1,6 @@
+/* Publication cards should remain compact without touching one another. */
+.publication-page .publication-list,
+.academic-page .publication-list {
+  display: grid;
+  gap: 9px !important;
+}
