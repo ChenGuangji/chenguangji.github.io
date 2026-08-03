@@ -8,8 +8,8 @@ gtag('config', 'G-BP4ZWFKWC7');</script><!-- End Google tag --><script>var _hmt 
   var s = document.getElementsByTagName('script')[0];
   s.parentNode.insertBefore(hm, s);
 })();
-</script><link rel="icon" href="/images/favicon.png"><link rel="stylesheet" href="/style/common/bulma.css"><link rel="stylesheet" href="/style/base.css"><link rel="stylesheet" href="/style/common/helper.css"><link rel="stylesheet" href="/style/academic.css"><link rel="stylesheet" href="/style/academic-fixes.css"><link rel="stylesheet" href="/style/academic-polish.css"><link rel="stylesheet" href="/style/academic-white.css"><link rel="stylesheet" href="/style/academic-home-panel.css"><link rel="stylesheet" href="/style/academic-about-links.css"><link rel="stylesheet" href="/style/academic-publications-tight.css"><link rel="stylesheet" href="/style/academic-home-publications.css"><link rel="stylesheet" href="/style/academic-spacing-review.css"><link rel="stylesheet" href="/style/publication-card-spacing.css"><link rel="stylesheet" href="/style/academic-layout-refinements.css"><script src="/js/common.js"></script><link rel="stylesheet" href="/style/themes/highlight-theme-light.css"><link rel="stylesheet" href="/style/common/jquery.fancybox.min.css"><script src="/js/highlight.pack.js"></script><meta name="generator" content="Hexo 7.0.0"><link rel="alternate" href="/atom.xml" title="Guangji Chen" type="application/atom+xml">
-</head><body class="site-body"><a class="skip-link" href="#main-content">Skip to content</a><header class="site-header"><div class="site-shell site-header-inner"><a class="site-brand" href="/"><span class="site-brand-name">Guangji Chen</span><span class="site-brand-field">Evolutionary Genomics</span></a><nav class="site-navigation" aria-label="Primary navigation"><a class="site-navigation-link" href="/">Home</a><a class="site-navigation-link" href="/research/">Research</a><a class="site-navigation-link" href="/publications/">Publications</a><a class="site-navigation-link is-active" href="/post/" aria-current="page">Writing</a><a class="site-navigation-link" href="/about/">About</a></nav></div></header><main class="site-main" id="main-content" tabindex="-1"><article class="academic-article"><div class="site-shell article-shell"><header class="article-header"><div class="article-tags"><a class="academic-tag" href="/tags/B10K">B10K</a></div><h1>B10K生信入门教程</h1><div class="article-meta"><time datetime="1997-03-07T16:00:00.000Z">1997-03-08</time><span>Writing & research notes</span></div></header><div class="article-layout"><article class="article-content content"><p>这是一个持续会更新的教程，专为B10K入门的新人们编写，旨在快速理解并使用一些常用脚本、软件等……</p>
+</script><link rel="icon" href="/images/favicon.png"><link rel="stylesheet" href="/style/common/bulma.css"><link rel="stylesheet" href="/style/base.css"><link rel="stylesheet" href="/style/common/helper.css"><link rel="stylesheet" href="/style/academic.css"><link rel="stylesheet" href="/style/academic-fixes.css"><link rel="stylesheet" href="/style/academic-polish.css"><link rel="stylesheet" href="/style/academic-white.css"><link rel="stylesheet" href="/style/academic-home-panel.css"><link rel="stylesheet" href="/style/academic-about-links.css"><link rel="stylesheet" href="/style/academic-publications-tight.css"><link rel="stylesheet" href="/style/academic-home-publications.css"><link rel="stylesheet" href="/style/academic-spacing-review.css"><link rel="stylesheet" href="/style/publication-card-spacing.css"><link rel="stylesheet" href="/style/academic-layout-refinements.css"><script src="/js/common.js"></script><link rel="stylesheet" href="/style/themes/highlight-theme-light.css"><link rel="stylesheet" href="/style/common/jquery.fancybox.min.css"><link rel="stylesheet" href="/style/protected-post.css"><script src="/js/highlight.pack.js"></script><meta name="generator" content="Hexo 7.0.0"><link rel="alternate" href="/atom.xml" title="Guangji Chen" type="application/atom+xml">
+</head><body class="site-body"><a class="skip-link" href="#main-content">Skip to content</a><header class="site-header"><div class="site-shell site-header-inner"><a class="site-brand" href="/"><span class="site-brand-name">Guangji Chen</span><span class="site-brand-field">Evolutionary Genomics</span></a><nav class="site-navigation" aria-label="Primary navigation"><a class="site-navigation-link" href="/">Home</a><a class="site-navigation-link" href="/research/">Research</a><a class="site-navigation-link" href="/publications/">Publications</a><a class="site-navigation-link is-active" href="/post/" aria-current="page">Writing</a><a class="site-navigation-link" href="/about/">About</a></nav></div></header><main class="site-main" id="main-content" tabindex="-1"><article class="academic-article"><div class="site-shell article-shell"><header class="article-header"><div class="article-tags"><a class="academic-tag" href="/tags/B10K">B10K</a></div><h1>B10K生信入门教程</h1><div class="article-meta"><time datetime="1997-03-07T16:00:00.000Z">1997-03-08</time><span>Writing & research notes</span></div></header><section class="protected-post-gate" id="protected-post-gate" data-password-hash="acb5d11e6e4ff27e1d3c8b3406c62faba8aaed4019fbaecca12cc3b02fc29c05" aria-labelledby="protected-post-title"><p class="eyebrow">Protected article</p><h2 id="protected-post-title">请输入访问密码</h2><p class="protected-post-description">此页面仅向获得密码的访问者开放。验证成功后，该浏览器会记住解锁状态。</p><form class="protected-post-form"><input type="password" name="password" placeholder="密码" aria-label="访问密码" autocomplete="current-password" spellcheck="false" required><button type="submit">打开文章</button></form><p class="protected-post-message" id="protected-post-message" aria-live="polite"></p></section><div id="protected-post-content" hidden><div class="article-layout"><article class="article-content content"><p>这是一个持续会更新的教程，专为B10K入门的新人们编写，旨在快速理解并使用一些常用脚本、软件等……</p>
 <span id="more"></span>
 
 <h1 id="1-Bash"><a href="#1-Bash" class="headerlink" title="1. Bash"></a>1. Bash</h1><h2 id="1-1-环境变量"><a href="#1-1-环境变量" class="headerlink" title="1.1 环境变量"></a>1.1 环境变量</h2><p>当我们使用<code>mobaxterm</code>或<code>iterm2</code>以<code>ssh usrname@ipaddress</code>登录到集群上时，文件<code>/home/usrname/.bash_profile</code>会被加载。</p>
@@ -112,20 +112,23 @@ B10K 类群分组与绘图
 <li><a target="_blank" rel="noopener" href="https://doi.org/10.17894/ucph.85624f66-c8e5-4b89-8e8a-fe984ca89e4a">Family Phase supporting data and scripts</a></li>
 </ul>
 <p>良渚集群内部也下载了一份工作镜像：</p>
-<pre><code class="highlight text">[mask]/B10K/B10K_PMO/02.Family_Phase/Nature2024/B10K/data_upload/</code></pre>
+<pre><code class="highlight text">/share/home/project/zhanglab/B10K/B10K_PMO/02.Family_Phase/Nature2024/B10K/data_upload/</code></pre>
 
 <p>该路径仅供具有相应集群和项目权限的成员访问。正式分析时应记录 DOI 存档中的数据版本和说明，不要只记录内部复制路径；也不要把受限数据或未经确认的大文件重新公开上传。</p>
-<h2 id="2-2-Codex-bin-的代码结构"><a href="#2-2-Codex-bin-的代码结构" class="headerlink" title="2.2 Codex_bin 的代码结构"></a>2.2 Codex_bin 的代码结构</h2><p>仓库把通用函数和具体工作流分开保存：</p>
-<pre><code class="highlight text">src/R/                         # 可复用 R 函数
-src/python/for_codex_utils/    # 轻依赖 Python 函数
-workflows/                     # 文件输入、参数和结果输出</code></pre>
+<h2 id="2-2-Codex-bin-的代码结构"><a href="#2-2-Codex-bin-的代码结构" class="headerlink" title="2.2 Codex_bin 的代码结构"></a>2.2 Codex_bin 的代码结构</h2><p>仓库位置:</p>
+<pre><code class="highlight text">/share/home/zhanglab/user/chenguangji/Usrbin/local/Codex_bin/</code></pre>
+
+<p>仓库把通用函数和具体工作流分开保存：</p>
+<pre><code class="highlight text">/share/home/zhanglab/user/chenguangji/Usrbin/local/Codex_bin/src/R/                         # 可复用 R 函数
+/share/home/zhanglab/user/chenguangji/Usrbin/local/Codex_bin/src/python/for_codex_utils/    # 轻依赖 Python 函数
+/share/home/zhanglab/user/chenguangji/Usrbin/local/Codex_bin/workflows/                     # 文件输入、参数和结果输出</code></pre>
 
 <p>B10K 树图相关文件为：</p>
-<pre><code class="highlight text">src/R/phylogeny/clade_grouping.R
-workflows/B10K/363_clade_tree.R</code></pre>
+<pre><code class="highlight text">/share/home/zhanglab/user/chenguangji/Usrbin/local/Codex_bin/src/R/phylogeny/clade_grouping.R
+/share/home/zhanglab/user/chenguangji/Usrbin/local/Codex_bin/workflows/B10K/363_clade_tree.R</code></pre>
 
 <p>前者负责读取和校验系统树及分组表，后者保存 B10K 的类群颜色、扇形布局和输出参数。</p>
-<h2 id="2-3-准备环境"><a href="#2-3-准备环境" class="headerlink" title="2.3 准备环境"></a>2.3 准备环境</h2><p>基础 R 依赖：</p>
+<h2 id="2-3-准备环境-可选"><a href="#2-3-准备环境-可选" class="headerlink" title="2.3 准备环境 [可选]"></a>2.3 准备环境 [可选]</h2><p>基础 R 依赖：</p>
 <pre><code class="highlight r">install.packages<span class="punctuation">(</span><span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;ape&quot;</span><span class="punctuation">,</span> <span class="string">&quot;phangorn&quot;</span><span class="punctuation">,</span> <span class="string">&quot;ggplot2&quot;</span><span class="punctuation">)</span><span class="punctuation">)</span>
 
 <span class="keyword">if</span> <span class="punctuation">(</span><span class="operator">!</span>requireNamespace<span class="punctuation">(</span><span class="string">&quot;BiocManager&quot;</span><span class="punctuation">,</span> quietly <span class="operator">=</span> <span class="literal">TRUE</span><span class="punctuation">)</span><span class="punctuation">)</span> <span class="punctuation">&#123;</span>
@@ -138,16 +141,16 @@ BiocManager<span class="operator">::</span>install<span class="punctuation">(</s
 
 <p>FASTA 整理脚本只使用 Python 标准库。MAFFT 或 MUSCLE 需要单独安装，并确保程序位于 <code>PATH</code>。</p>
 <p>可先查看帮助：</p>
-<pre><code class="highlight bash">python3 workflows/sequences/fasta_tool.py --<span class="built_in">help</span>
-python3 workflows/sequences/normalize_fasta.py --<span class="built_in">help</span>
-python3 workflows/sequences/translate_cds.py --<span class="built_in">help</span>
+<pre><code class="highlight bash">python3 /share/home/zhanglab/user/chenguangji/Usrbin/local/Codex_bin/workflows/sequences/fasta_tool.py --<span class="built_in">help</span>
+python3 /share/home/zhanglab/user/chenguangji/Usrbin/local/Codex_bin/workflows/sequences/normalize_fasta.py --<span class="built_in">help</span>
+python3 /share/home/zhanglab/user/chenguangji/Usrbin/local/Codex_bin/workflows/sequences/translate_cds.py --<span class="built_in">help</span>
 
-Rscript workflows/trait/impute_trait_table.R
-Rscript workflows/phylogeny/extract_subtree.R
-Rscript workflows/phylogeny/reroot_tree.R</code></pre>
+Rscript /share/home/zhanglab/user/chenguangji/Usrbin/local/Codex_bin/workflows/trait/impute_trait_table.R
+Rscript /share/home/zhanglab/user/chenguangji/Usrbin/local/Codex_bin/workflows/phylogeny/extract_subtree.R
+Rscript /share/home/zhanglab/user/chenguangji/Usrbin/local/Codex_bin/workflows/phylogeny/reroot_tree.R</code></pre>
 
 <h2 id="2-4-FASTA：先统一-ID"><a href="#2-4-FASTA：先统一-ID" class="headerlink" title="2.4 FASTA：先统一 ID"></a>2.4 FASTA：先统一 ID</h2><p>同一个物种在 CDS、蛋白、alignment、tree 和 trait table 中使用不同 ID，是比较基因组分析中常见的问题。建议先统一 ID，并保留旧 ID 到新 ID 的映射。</p>
-<h3 id="2-4-1-规范-FASTA-ID"><a href="#2-4-1-规范-FASTA-ID" class="headerlink" title="2.4.1 规范 FASTA ID"></a>2.4.1 规范 FASTA ID</h3><pre><code class="highlight bash">python3 workflows/sequences/normalize_fasta.py \
+<h3 id="2-4-1-规范-FASTA-ID"><a href="#2-4-1-规范-FASTA-ID" class="headerlink" title="2.4.1 规范 FASTA ID"></a>2.4.1 规范 FASTA ID</h3><pre><code class="highlight bash">python3 /share/home/zhanglab/user/chenguangji/Usrbin/local/Codex_bin/workflows/sequences/normalize_fasta.py \
   data/raw_sequences.fa \
   results/sequences.normalized.fa \
   --input-key first \
@@ -156,27 +159,19 @@ Rscript workflows/phylogeny/reroot_tree.R</code></pre>
   --mapping-file results/sequences.id_mapping.tsv</code></pre>
 
 <p>工作流会写出规范化 FASTA，以及包含 <code>source_id</code> 和 <code>normalized_id</code> 的映射表。需要显式替换残基字符时，可以重复使用 <code>--mask</code>：</p>
-<pre><code class="highlight bash">python3 workflows/sequences/normalize_fasta.py \
+<pre><code class="highlight bash">python3 /share/home/zhanglab/user/chenguangji/Usrbin/local/Codex_bin/workflows/sequences/normalize_fasta.py \
   data/raw_sequences.fa \
   results/sequences.masked.fa \
   --mask <span class="string">&#x27;?=N&#x27;</span> \
   --mask <span class="string">&#x27;X=N&#x27;</span></code></pre>
 
 <p>替换前应确认序列类型和缺失字符的真实含义。</p>
-<h3 id="2-4-2-查看序列统计"><a href="#2-4-2-查看序列统计" class="headerlink" title="2.4.2 查看序列统计"></a>2.4.2 查看序列统计</h3><pre><code class="highlight bash">python3 workflows/sequences/fasta_tool.py stats \
+<h3 id="2-4-2-查看序列统计"><a href="#2-4-2-查看序列统计" class="headerlink" title="2.4.2 查看序列统计"></a>2.4.2 查看序列统计</h3><pre><code class="highlight bash">python3 /share/home/zhanglab/user/chenguangji/Usrbin/local/Codex_bin/workflows/sequences/fasta_tool.py stats \
   results/sequences.normalized.fa \
   results/sequences.stats.tsv</code></pre>
 
 <p>默认统计 ID、序列长度、去除 gap 后长度、GC 比例、<code>N</code> 数量和 <code>X</code> 数量，可用于快速寻找异常序列。</p>
-<h3 id="2-4-3-按-ID-提取序列"><a href="#2-4-3-按-ID-提取序列" class="headerlink" title="2.4.3 按 ID 提取序列"></a>2.4.3 按 ID 提取序列</h3><p>准备每行一个 ID 的 <code>selected_ids.txt</code>，然后运行：</p>
-<pre><code class="highlight bash">python3 workflows/sequences/fasta_tool.py subset \
-  results/sequences.normalized.fa \
-  data/selected_ids.txt \
-  results/selected.fa \
-  --missing error</code></pre>
-
-<p>调试时可以使用 <code>--missing drop</code>；正式分析更建议先使用 <code>error</code>，避免样本被静默删除。</p>
-<h3 id="2-4-4-提取区间和反向互补序列"><a href="#2-4-4-提取区间和反向互补序列" class="headerlink" title="2.4.4 提取区间和反向互补序列"></a>2.4.4 提取区间和反向互补序列</h3><pre><code class="highlight bash">python3 workflows/sequences/fasta_tool.py subseq \
+<h3 id="2-4-3-提取区间和反向互补序列"><a href="#2-4-3-提取区间和反向互补序列" class="headerlink" title="2.4.3 提取区间和反向互补序列"></a>2.4.3 提取区间和反向互补序列</h3><pre><code class="highlight bash">python3 /share/home/zhanglab/user/chenguangji/Usrbin/local/Codex_bin/workflows/sequences/fasta_tool.py subseq \
   data/genome.fa \
   results/region.revcomp.fa \
   --record chromosome_1 \
@@ -185,7 +180,7 @@ Rscript workflows/phylogeny/reroot_tree.R</code></pre>
   --reverse-complement</code></pre>
 
 <p>这里的坐标是 1-based closed。和 BED 等 0-based half-open 文件联用时，必须先转换或确认坐标定义。</p>
-<h2 id="2-5-从-CDS-到-codon-alignment"><a href="#2-5-从-CDS-到-codon-alignment" class="headerlink" title="2.5 从 CDS 到 codon alignment"></a>2.5 从 CDS 到 codon alignment</h2><h3 id="2-5-1-翻译-CDS"><a href="#2-5-1-翻译-CDS" class="headerlink" title="2.5.1 翻译 CDS"></a>2.5.1 翻译 CDS</h3><pre><code class="highlight bash">python3 workflows/sequences/translate_cds.py \
+<h2 id="2-5-从-CDS-到-codon-alignment"><a href="#2-5-从-CDS-到-codon-alignment" class="headerlink" title="2.5 从 CDS 到 codon alignment"></a>2.5 从 CDS 到 codon alignment</h2><h3 id="2-5-1-翻译-CDS"><a href="#2-5-1-翻译-CDS" class="headerlink" title="2.5.1 翻译 CDS"></a>2.5.1 翻译 CDS</h3><pre><code class="highlight bash">python3 /share/home/zhanglab/user/chenguangji/Usrbin/local/Codex_bin/workflows/sequences/translate_cds.py \
   data/ortholog.cds.fa \
   results/ortholog.aa.fa \
   --frame 0 \
@@ -195,7 +190,7 @@ Rscript workflows/phylogeny/reroot_tree.R</code></pre>
 
 <p><code>--frame</code> 可取 <code>0</code>、<code>1</code> 或 <code>2</code>。正式分析建议先使用严格策略检查不完整密码子和内部终止密码子，而不是为了继续运行而直接忽略异常。</p>
 <h3 id="2-5-2-蛋白序列比对"><a href="#2-5-2-蛋白序列比对" class="headerlink" title="2.5.2 蛋白序列比对"></a>2.5.2 蛋白序列比对</h3><p>使用 MAFFT：</p>
-<pre><code class="highlight bash">bash workflows/sequences/run_sequence_alignment.sh \
+<pre><code class="highlight bash">bash /share/home/zhanglab/user/chenguangji/Usrbin/local/Codex_bin/workflows/sequences/run_sequence_alignment.sh \
   results/ortholog.aa.fa \
   results/ortholog.aa.aln.fa \
   mafft \
@@ -203,7 +198,7 @@ Rscript workflows/phylogeny/reroot_tree.R</code></pre>
   --auto</code></pre>
 
 <p>同一脚本也支持 <code>muscle3</code> 和 <code>muscle5</code>。脚本会检查输入文件、线程数和外部程序，但 alignment 方法及参数仍需要根据数据特点选择。</p>
-<h3 id="2-5-3-投影回密码子-alignment"><a href="#2-5-3-投影回密码子-alignment" class="headerlink" title="2.5.3 投影回密码子 alignment"></a>2.5.3 投影回密码子 alignment</h3><pre><code class="highlight bash">python3 workflows/sequences/protein_alignment_to_codon.py \
+<h3 id="2-5-3-映射回密码子-alignment"><a href="#2-5-3-映射回密码子-alignment" class="headerlink" title="2.5.3 映射回密码子 alignment"></a>2.5.3 映射回密码子 alignment</h3><pre><code class="highlight bash">python3 /share/home/zhanglab/user/chenguangji/Usrbin/local/Codex_bin/workflows/sequences/protein_alignment_to_codon.py \
   results/ortholog.aa.aln.fa \
   data/ortholog.cds.fa \
   results/ortholog.codon.aln.fa \
@@ -213,13 +208,13 @@ Rscript workflows/phylogeny/reroot_tree.R</code></pre>
 <p>蛋白 alignment 和 CDS 的 ID 必须一致。进入 PAML 或其他 codon 模型前，应检查序列长度、reading frame、内部终止密码子和异常 gap 区域。</p>
 <h2 id="2-6-系统树裁剪、整理和重根"><a href="#2-6-系统树裁剪、整理和重根" class="headerlink" title="2.6 系统树裁剪、整理和重根"></a>2.6 系统树裁剪、整理和重根</h2><p>树中的 tip 名称应与 FASTA、分组表和性状表完全一致，包括大小写、下划线和版本后缀。</p>
 <h3 id="2-6-1-提取目标物种子树"><a href="#2-6-1-提取目标物种子树" class="headerlink" title="2.6.1 提取目标物种子树"></a>2.6.1 提取目标物种子树</h3><p>准备每行一个 tip 的 <code>tips.txt</code>：</p>
-<pre><code class="highlight bash">Rscript workflows/phylogeny/extract_subtree.R \
+<pre><code class="highlight bash">Rscript /share/home/zhanglab/user/chenguangji/Usrbin/local/Codex_bin/workflows/phylogeny/extract_subtree.R \
   data/b10k_tree.nwk \
   data/tips.txt \
   results/b10k_subset.nwk</code></pre>
 
 <p>缺失 tip 的策略可以选择 <code>error</code>、<code>warn</code> 或 <code>ignore</code>。正式分析建议先使用默认的 <code>error</code>。</p>
-<h3 id="2-6-2-处理多分叉和节点标签"><a href="#2-6-2-处理多分叉和节点标签" class="headerlink" title="2.6.2 处理多分叉和节点标签"></a>2.6.2 处理多分叉和节点标签</h3><pre><code class="highlight bash">Rscript workflows/phylogeny/resolve_polytomies.R \
+<h3 id="2-6-2-处理多分叉和节点标签"><a href="#2-6-2-处理多分叉和节点标签" class="headerlink" title="2.6.2 处理多分叉和节点标签"></a>2.6.2 处理多分叉和节点标签</h3><pre><code class="highlight bash">Rscript /share/home/zhanglab/user/chenguangji/Usrbin/local/Codex_bin/workflows/phylogeny/resolve_polytomies.R \
   results/b10k_subset.nwk \
   results/b10k_subset.resolved.nwk \
   auto \
@@ -235,7 +230,7 @@ Rscript workflows/phylogeny/reroot_tree.R</code></pre>
   results/b10k_subset.tips.txt</code></pre>
 
 <p>如果使用随机多分叉解析，应提供固定 seed，并明确说明随机解析不代表有数据支持的拓扑关系。</p>
-<h3 id="2-6-3-使用外群重根"><a href="#2-6-3-使用外群重根" class="headerlink" title="2.6.3 使用外群重根"></a>2.6.3 使用外群重根</h3><pre><code class="highlight bash">Rscript workflows/phylogeny/reroot_tree.R \
+<h3 id="2-6-3-使用外群重根"><a href="#2-6-3-使用外群重根" class="headerlink" title="2.6.3 使用外群重根"></a>2.6.3 使用外群重根</h3><pre><code class="highlight bash">Rscript /share/home/zhanglab/user/chenguangji/Usrbin/local/Codex_bin/workflows/phylogeny/reroot_tree.R \
   results/b10k_subset.resolved.nwk \
   results/b10k_subset.rooted.nwk \
   outgroup \
@@ -245,7 +240,7 @@ Rscript workflows/phylogeny/reroot_tree.R</code></pre>
   -</code></pre>
 
 <p>使用 midpoint rooting：</p>
-<pre><code class="highlight bash">Rscript workflows/phylogeny/reroot_tree.R \
+<pre><code class="highlight bash">Rscript /share/home/zhanglab/user/chenguangji/Usrbin/local/Codex_bin/workflows/phylogeny/reroot_tree.R \
   results/b10k_subset.resolved.nwk \
   results/b10k_subset.midpoint.nwk \
   midpoint \
@@ -263,8 +258,8 @@ species_C,Australaves
 species_D,Afroaves</code></pre>
 
 <p>新建 <code>run_b10k_tree.R</code>：</p>
-<pre><code class="highlight r">source<span class="punctuation">(</span><span class="string">&quot;src/R/phylogeny/clade_grouping.R&quot;</span><span class="punctuation">)</span>
-source<span class="punctuation">(</span><span class="string">&quot;workflows/B10K/363_clade_tree.R&quot;</span><span class="punctuation">)</span>
+<pre><code class="highlight r">source<span class="punctuation">(</span><span class="string">&quot;/share/home/zhanglab/user/chenguangji/Usrbin/local/Codex_bin/src/R/phylogeny/clade_grouping.R&quot;</span><span class="punctuation">)</span>
+source<span class="punctuation">(</span><span class="string">&quot;/share/home/zhanglab/user/chenguangji/Usrbin/local/Codex_bin/workflows/B10K/363_clade_tree.R&quot;</span><span class="punctuation">)</span>
 
 run_b10k_363_clade_tree<span class="punctuation">(</span>
   tree_file <span class="operator">=</span> <span class="string">&quot;results/b10k_subset.rooted.nwk&quot;</span><span class="punctuation">,</span>
@@ -299,7 +294,7 @@ species_A	125.3	88.1	Forest
 species_B	NA	91.7	Grassland
 species_C	84.6	NA	Forest</code></pre>
 
-<h3 id="2-8-1-简单填补用于流程检查"><a href="#2-8-1-简单填补用于流程检查" class="headerlink" title="2.8.1 简单填补用于流程检查"></a>2.8.1 简单填补用于流程检查</h3><pre><code class="highlight bash">Rscript workflows/trait/impute_trait_table.R \
+<h3 id="2-8-1-简单填补用于流程检查"><a href="#2-8-1-简单填补用于流程检查" class="headerlink" title="2.8.1 简单填补用于流程检查"></a>2.8.1 简单填补用于流程检查</h3><pre><code class="highlight bash">Rscript /share/home/zhanglab/user/chenguangji/Usrbin/local/Codex_bin/workflows/trait/impute_trait_table.R \
   data/traits.tsv \
   results/traits_simple \
   Species \
@@ -313,7 +308,7 @@ results/traits_simple.missingness.csv
 results/traits_simple.replacements.csv
 results/traits_simple.parameters.csv</code></pre>
 
-<h3 id="2-8-2-使用-missForest"><a href="#2-8-2-使用-missForest" class="headerlink" title="2.8.2 使用 missForest"></a>2.8.2 使用 missForest</h3><pre><code class="highlight bash">Rscript workflows/trait/impute_trait_table.R \
+<h3 id="2-8-2-使用-missForest"><a href="#2-8-2-使用-missForest" class="headerlink" title="2.8.2 使用 missForest"></a>2.8.2 使用 missForest</h3><pre><code class="highlight bash">Rscript /share/home/zhanglab/user/chenguangji/Usrbin/local/Codex_bin/workflows/trait/impute_trait_table.R \
   data/traits.tsv \
   results/traits_missforest \
   Species \
@@ -334,7 +329,7 @@ Habitat,Grassland,2
 Habitat,Wetland,3</code></pre>
 
 <p>应记录参与填补的列、factor level、随机 seed、缺失比例、OOB error，以及是否进行了 log10 转换。</p>
-<h2 id="2-9-连续性状与系统树分析"><a href="#2-9-连续性状与系统树分析" class="headerlink" title="2.9 连续性状与系统树分析"></a>2.9 连续性状与系统树分析</h2><h3 id="2-9-1-祖先性状重建"><a href="#2-9-1-祖先性状重建" class="headerlink" title="2.9.1 祖先性状重建"></a>2.9.1 祖先性状重建</h3><pre><code class="highlight bash">Rscript workflows/phylogeny/analyze_continuous_trait.R \
+<h2 id="2-9-连续性状与系统树分析"><a href="#2-9-连续性状与系统树分析" class="headerlink" title="2.9 连续性状与系统树分析"></a>2.9 连续性状与系统树分析</h2><h3 id="2-9-1-祖先性状重建"><a href="#2-9-1-祖先性状重建" class="headerlink" title="2.9.1 祖先性状重建"></a>2.9.1 祖先性状重建</h3><pre><code class="highlight bash">Rscript /share/home/zhanglab/user/chenguangji/Usrbin/local/Codex_bin/workflows/phylogeny/analyze_continuous_trait.R \
   results/b10k_subset.rooted.nwk \
   results/traits_missforest.imputed.csv \
   results/body_mass \
@@ -348,7 +343,7 @@ Habitat,Wetland,3</code></pre>
 
 <p>脚本会先按物种 ID 对齐树和性状表，并输出对齐数据、tip 和 internal node 的重建结果及参数记录。</p>
 <h3 id="2-9-2-Phylogenetic-ANOVA"><a href="#2-9-2-Phylogenetic-ANOVA" class="headerlink" title="2.9.2 Phylogenetic ANOVA"></a>2.9.2 Phylogenetic ANOVA</h3><p>性状表需额外包含分组列，例如 <code>Clade</code>：</p>
-<pre><code class="highlight bash">Rscript workflows/phylogeny/analyze_continuous_trait.R \
+<pre><code class="highlight bash">Rscript /share/home/zhanglab/user/chenguangji/Usrbin/local/Codex_bin/workflows/phylogeny/analyze_continuous_trait.R \
   results/b10k_subset.rooted.nwk \
   results/traits_missforest.imputed.csv \
   results/body_mass_by_clade \
@@ -391,7 +386,7 @@ bash -n test_all.sh
 <p>还可以先复制少量命令到一个测试文件中运行，确认软件环境、输入路径和输出权限都正确，再提交完整任务列表。</p>
 <p>当一个子任务需要由多行命令组成时，可以通过 <code>-l</code> 或 <code>--lines</code> 指定每个子任务包含的行数。默认值为 <code>1</code>。</p>
 <h2 id="3-3-在-Slurm-上运行"><a href="#3-3-在-Slurm-上运行" class="headerlink" title="3.3 在 Slurm 上运行"></a>3.3 在 Slurm 上运行</h2><p>示例命令：</p>
-<pre><code class="highlight bash">paralleltask-ng \
+<pre><code class="highlight bash">/share/home/zhanglab/user/chenguangji/Usrbin/anaconda3/bin/paralleltask-ng \
   -t slurm \
   -m 10 \
   -i 3 \
@@ -455,4 +450,7 @@ bash -n test_all.sh
 <li>对失败任务先判断原因，再决定是否重跑。</li>
 </ol>
 <p>并行化只负责调度彼此独立的命令，不会自动判断分析步骤之间的依赖关系。存在前后依赖的命令应合并为同一个子任务，或拆成多个阶段，在上一阶段全部完成并验证后再启动下一阶段。</p>
-</article><aside class="article-toc"><p class="article-toc-label">On this page</p><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-Bash"><span class="toc-text">1. Bash</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="toc-text">1.1 环境变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-%E5%B8%B8%E7%94%A8%E7%BC%A9%E5%86%99"><span class="toc-text">1.2 常用缩写</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-B10K-%E6%95%B0%E6%8D%AE%E4%B8%8E-Codex-bin-%E5%B7%A5%E4%BD%9C%E6%B5%81%EF%BC%88%E6%96%B0%E5%A2%9E%EF%BC%89"><span class="toc-text">2. B10K 数据与 Codex_bin 工作流（新增）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-%E6%95%B0%E6%8D%AE%E5%92%8C%E5%88%86%E6%9E%90%E6%B5%81%E7%A8%8B%E4%BB%8E%E5%93%AA%E9%87%8C%E8%8E%B7%E5%BE%97%EF%BC%9F"><span class="toc-text">2.1 数据和分析流程从哪里获得？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-Codex-bin-%E7%9A%84%E4%BB%A3%E7%A0%81%E7%BB%93%E6%9E%84"><span class="toc-text">2.2 Codex_bin 的代码结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-%E5%87%86%E5%A4%87%E7%8E%AF%E5%A2%83"><span class="toc-text">2.3 准备环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-4-FASTA%EF%BC%9A%E5%85%88%E7%BB%9F%E4%B8%80-ID"><span class="toc-text">2.4 FASTA：先统一 ID</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-1-%E8%A7%84%E8%8C%83-FASTA-ID"><span class="toc-text">2.4.1 规范 FASTA ID</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-2-%E6%9F%A5%E7%9C%8B%E5%BA%8F%E5%88%97%E7%BB%9F%E8%AE%A1"><span class="toc-text">2.4.2 查看序列统计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-3-%E6%8C%89-ID-%E6%8F%90%E5%8F%96%E5%BA%8F%E5%88%97"><span class="toc-text">2.4.3 按 ID 提取序列</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-4-%E6%8F%90%E5%8F%96%E5%8C%BA%E9%97%B4%E5%92%8C%E5%8F%8D%E5%90%91%E4%BA%92%E8%A1%A5%E5%BA%8F%E5%88%97"><span class="toc-text">2.4.4 提取区间和反向互补序列</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-5-%E4%BB%8E-CDS-%E5%88%B0-codon-alignment"><span class="toc-text">2.5 从 CDS 到 codon alignment</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-1-%E7%BF%BB%E8%AF%91-CDS"><span class="toc-text">2.5.1 翻译 CDS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-2-%E8%9B%8B%E7%99%BD%E5%BA%8F%E5%88%97%E6%AF%94%E5%AF%B9"><span class="toc-text">2.5.2 蛋白序列比对</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-3-%E6%8A%95%E5%BD%B1%E5%9B%9E%E5%AF%86%E7%A0%81%E5%AD%90-alignment"><span class="toc-text">2.5.3 投影回密码子 alignment</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-6-%E7%B3%BB%E7%BB%9F%E6%A0%91%E8%A3%81%E5%89%AA%E3%80%81%E6%95%B4%E7%90%86%E5%92%8C%E9%87%8D%E6%A0%B9"><span class="toc-text">2.6 系统树裁剪、整理和重根</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-6-1-%E6%8F%90%E5%8F%96%E7%9B%AE%E6%A0%87%E7%89%A9%E7%A7%8D%E5%AD%90%E6%A0%91"><span class="toc-text">2.6.1 提取目标物种子树</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-6-2-%E5%A4%84%E7%90%86%E5%A4%9A%E5%88%86%E5%8F%89%E5%92%8C%E8%8A%82%E7%82%B9%E6%A0%87%E7%AD%BE"><span class="toc-text">2.6.2 处理多分叉和节点标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-6-3-%E4%BD%BF%E7%94%A8%E5%A4%96%E7%BE%A4%E9%87%8D%E6%A0%B9"><span class="toc-text">2.6.3 使用外群重根</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-7-%E7%BB%98%E5%88%B6-B10K-363-%E7%B1%BB%E7%BE%A4%E7%B3%BB%E7%BB%9F%E6%A0%91"><span class="toc-text">2.7 绘制 B10K 363 类群系统树</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-8-Trait%EF%BC%9A%E6%95%B4%E7%90%86%E5%92%8C%E5%A1%AB%E8%A1%A5%E6%B7%B7%E5%90%88%E5%9E%8B%E6%80%A7%E7%8A%B6%E8%A1%A8"><span class="toc-text">2.8 Trait：整理和填补混合型性状表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-8-1-%E7%AE%80%E5%8D%95%E5%A1%AB%E8%A1%A5%E7%94%A8%E4%BA%8E%E6%B5%81%E7%A8%8B%E6%A3%80%E6%9F%A5"><span class="toc-text">2.8.1 简单填补用于流程检查</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-8-2-%E4%BD%BF%E7%94%A8-missForest"><span class="toc-text">2.8.2 使用 missForest</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-9-%E8%BF%9E%E7%BB%AD%E6%80%A7%E7%8A%B6%E4%B8%8E%E7%B3%BB%E7%BB%9F%E6%A0%91%E5%88%86%E6%9E%90"><span class="toc-text">2.9 连续性状与系统树分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-9-1-%E7%A5%96%E5%85%88%E6%80%A7%E7%8A%B6%E9%87%8D%E5%BB%BA"><span class="toc-text">2.9.1 祖先性状重建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-9-2-Phylogenetic-ANOVA"><span class="toc-text">2.9.2 Phylogenetic ANOVA</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-%E5%B9%B6%E8%A1%8C%E5%8C%96%E5%A4%84%E7%90%86%EF%BC%9Aparalleltask-ng"><span class="toc-text">3. 并行化处理：paralleltask-ng</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-%E5%AE%89%E8%A3%85"><span class="toc-text">3.1 安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-%E5%87%86%E5%A4%87%E4%BB%BB%E5%8A%A1%E6%96%87%E4%BB%B6"><span class="toc-text">3.2 准备任务文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-3-%E5%9C%A8-Slurm-%E4%B8%8A%E8%BF%90%E8%A1%8C"><span class="toc-text">3.3 在 Slurm 上运行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-4-CPU-%E5%92%8C%E5%86%85%E5%AD%98"><span class="toc-text">3.4 CPU 和内存</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-5-%E8%BF%90%E8%A1%8C%E7%9B%AE%E5%BD%95%E3%80%81%E6%97%A5%E5%BF%97%E5%92%8C%E5%A4%B1%E8%B4%A5%E4%BB%BB%E5%8A%A1"><span class="toc-text">3.5 运行目录、日志和失败任务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-6-%E4%BD%BF%E7%94%A8-submit-retry-%E7%9A%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-text">3.6 使用 --submit-retry 的注意事项</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-7-%E6%8E%A8%E8%8D%90%E7%9A%84%E4%BD%BF%E7%94%A8%E6%AD%A5%E9%AA%A4"><span class="toc-text">3.7 推荐的使用步骤</span></a></li></ol></li></ol></aside></div><nav class="article-navigation" aria-label="Adjacent posts"><a class="article-navigation-item" href="/20230401/SETvsEES/"><small>Previous</small><strong>演化论的争论：SET与EES</strong></a></nav><section class="article-comments"><h2>Discussion</h2><p>Comments are stored in the public GitHub repository ChenGuangji/myBlogRepo.</p><script async repo="ChenGuangji/myBlogRepo" src="https://utteranc.es/client.js" issue-term="pathname" theme="github-light"></script></section></div></article></main><footer class="site-footer"><div class="site-shell site-footer-inner"><div class="site-footer-copy"><strong>Guangji Chen</strong><p>Evolutionary genomics, avian radiation and speciation.</p></div><div class="site-footer-links"><a title="Google Scholar" aria-label="Google Scholar" target="_blank" rel="noopener noreferrer" href="https://scholar.google.com/citations?user=OnxOEWoAAAAJ"><i class="iconfont icon-Aboutme"></i></a><a title="GitHub" aria-label="GitHub" target="_blank" rel="noopener noreferrer" href="https://github.com/ChenGuangji"><i class="iconfont icon-github"></i></a><a title="Email" aria-label="Email Guangji Chen" href="mailto:chenguangji38@gmail.com"><i class="iconfont icon-email"></i></a></div><p class="site-footer-meta">© 2026 Guangji Chen · Built with Hexo</p></div></footer><script src="/js/jquery-3.6.1.min.js"></script><script src="/js/jquery-fancybox.min.js"></script><script src="/js/img_zoom.js"></script><script src="/js/post.js"></script></body></html>
+<h1 id="Next-to-update"><a href="#Next-to-update" class="headerlink" title="Next to update"></a>Next to update</h1><ol>
+<li>Pixi related pipeline</li>
+</ol>
+</article><aside class="article-toc"><p class="article-toc-label">On this page</p><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-Bash"><span class="toc-text">1. Bash</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="toc-text">1.1 环境变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-%E5%B8%B8%E7%94%A8%E7%BC%A9%E5%86%99"><span class="toc-text">1.2 常用缩写</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-B10K-%E6%95%B0%E6%8D%AE%E4%B8%8E-Codex-bin-%E5%B7%A5%E4%BD%9C%E6%B5%81%EF%BC%88%E6%96%B0%E5%A2%9E%EF%BC%89"><span class="toc-text">2. B10K 数据与 Codex_bin 工作流（新增）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-%E6%95%B0%E6%8D%AE%E5%92%8C%E5%88%86%E6%9E%90%E6%B5%81%E7%A8%8B%E4%BB%8E%E5%93%AA%E9%87%8C%E8%8E%B7%E5%BE%97%EF%BC%9F"><span class="toc-text">2.1 数据和分析流程从哪里获得？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-Codex-bin-%E7%9A%84%E4%BB%A3%E7%A0%81%E7%BB%93%E6%9E%84"><span class="toc-text">2.2 Codex_bin 的代码结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-%E5%87%86%E5%A4%87%E7%8E%AF%E5%A2%83-%E5%8F%AF%E9%80%89"><span class="toc-text">2.3 准备环境 [可选]</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-4-FASTA%EF%BC%9A%E5%85%88%E7%BB%9F%E4%B8%80-ID"><span class="toc-text">2.4 FASTA：先统一 ID</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-1-%E8%A7%84%E8%8C%83-FASTA-ID"><span class="toc-text">2.4.1 规范 FASTA ID</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-2-%E6%9F%A5%E7%9C%8B%E5%BA%8F%E5%88%97%E7%BB%9F%E8%AE%A1"><span class="toc-text">2.4.2 查看序列统计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-3-%E6%8F%90%E5%8F%96%E5%8C%BA%E9%97%B4%E5%92%8C%E5%8F%8D%E5%90%91%E4%BA%92%E8%A1%A5%E5%BA%8F%E5%88%97"><span class="toc-text">2.4.3 提取区间和反向互补序列</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-5-%E4%BB%8E-CDS-%E5%88%B0-codon-alignment"><span class="toc-text">2.5 从 CDS 到 codon alignment</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-1-%E7%BF%BB%E8%AF%91-CDS"><span class="toc-text">2.5.1 翻译 CDS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-2-%E8%9B%8B%E7%99%BD%E5%BA%8F%E5%88%97%E6%AF%94%E5%AF%B9"><span class="toc-text">2.5.2 蛋白序列比对</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-3-%E6%98%A0%E5%B0%84%E5%9B%9E%E5%AF%86%E7%A0%81%E5%AD%90-alignment"><span class="toc-text">2.5.3 映射回密码子 alignment</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-6-%E7%B3%BB%E7%BB%9F%E6%A0%91%E8%A3%81%E5%89%AA%E3%80%81%E6%95%B4%E7%90%86%E5%92%8C%E9%87%8D%E6%A0%B9"><span class="toc-text">2.6 系统树裁剪、整理和重根</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-6-1-%E6%8F%90%E5%8F%96%E7%9B%AE%E6%A0%87%E7%89%A9%E7%A7%8D%E5%AD%90%E6%A0%91"><span class="toc-text">2.6.1 提取目标物种子树</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-6-2-%E5%A4%84%E7%90%86%E5%A4%9A%E5%88%86%E5%8F%89%E5%92%8C%E8%8A%82%E7%82%B9%E6%A0%87%E7%AD%BE"><span class="toc-text">2.6.2 处理多分叉和节点标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-6-3-%E4%BD%BF%E7%94%A8%E5%A4%96%E7%BE%A4%E9%87%8D%E6%A0%B9"><span class="toc-text">2.6.3 使用外群重根</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-7-%E7%BB%98%E5%88%B6-B10K-363-%E7%B1%BB%E7%BE%A4%E7%B3%BB%E7%BB%9F%E6%A0%91"><span class="toc-text">2.7 绘制 B10K 363 类群系统树</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-8-Trait%EF%BC%9A%E6%95%B4%E7%90%86%E5%92%8C%E5%A1%AB%E8%A1%A5%E6%B7%B7%E5%90%88%E5%9E%8B%E6%80%A7%E7%8A%B6%E8%A1%A8"><span class="toc-text">2.8 Trait：整理和填补混合型性状表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-8-1-%E7%AE%80%E5%8D%95%E5%A1%AB%E8%A1%A5%E7%94%A8%E4%BA%8E%E6%B5%81%E7%A8%8B%E6%A3%80%E6%9F%A5"><span class="toc-text">2.8.1 简单填补用于流程检查</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-8-2-%E4%BD%BF%E7%94%A8-missForest"><span class="toc-text">2.8.2 使用 missForest</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-9-%E8%BF%9E%E7%BB%AD%E6%80%A7%E7%8A%B6%E4%B8%8E%E7%B3%BB%E7%BB%9F%E6%A0%91%E5%88%86%E6%9E%90"><span class="toc-text">2.9 连续性状与系统树分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-9-1-%E7%A5%96%E5%85%88%E6%80%A7%E7%8A%B6%E9%87%8D%E5%BB%BA"><span class="toc-text">2.9.1 祖先性状重建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-9-2-Phylogenetic-ANOVA"><span class="toc-text">2.9.2 Phylogenetic ANOVA</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-%E5%B9%B6%E8%A1%8C%E5%8C%96%E5%A4%84%E7%90%86%EF%BC%9Aparalleltask-ng"><span class="toc-text">3. 并行化处理：paralleltask-ng</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-%E5%AE%89%E8%A3%85"><span class="toc-text">3.1 安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-%E5%87%86%E5%A4%87%E4%BB%BB%E5%8A%A1%E6%96%87%E4%BB%B6"><span class="toc-text">3.2 准备任务文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-3-%E5%9C%A8-Slurm-%E4%B8%8A%E8%BF%90%E8%A1%8C"><span class="toc-text">3.3 在 Slurm 上运行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-4-CPU-%E5%92%8C%E5%86%85%E5%AD%98"><span class="toc-text">3.4 CPU 和内存</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-5-%E8%BF%90%E8%A1%8C%E7%9B%AE%E5%BD%95%E3%80%81%E6%97%A5%E5%BF%97%E5%92%8C%E5%A4%B1%E8%B4%A5%E4%BB%BB%E5%8A%A1"><span class="toc-text">3.5 运行目录、日志和失败任务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-6-%E4%BD%BF%E7%94%A8-submit-retry-%E7%9A%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-text">3.6 使用 --submit-retry 的注意事项</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-7-%E6%8E%A8%E8%8D%90%E7%9A%84%E4%BD%BF%E7%94%A8%E6%AD%A5%E9%AA%A4"><span class="toc-text">3.7 推荐的使用步骤</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Next-to-update"><span class="toc-text">Next to update</span></a></li></ol></aside></div><nav class="article-navigation" aria-label="Adjacent posts"><a class="article-navigation-item" href="/20230401/SETvsEES/"><small>Previous</small><strong>演化论的争论：SET与EES</strong></a></nav><section class="article-comments"><h2>Discussion</h2><p>Comments are stored in the public GitHub repository ChenGuangji/myBlogRepo.</p><script async="async" repo="ChenGuangji/myBlogRepo" src="https://utteranc.es/client.js" issue-term="pathname" theme="github-light"></script></section></div></div></article></main><footer class="site-footer"><div class="site-shell site-footer-inner"><div class="site-footer-copy"><strong>Guangji Chen</strong><p>Evolutionary genomics, avian radiation and speciation.</p></div><div class="site-footer-links"><a title="Google Scholar" aria-label="Google Scholar" target="_blank" rel="noopener noreferrer" href="https://scholar.google.com/citations?user=OnxOEWoAAAAJ"><i class="iconfont icon-Aboutme"></i></a><a title="GitHub" aria-label="GitHub" target="_blank" rel="noopener noreferrer" href="https://github.com/ChenGuangji"><i class="iconfont icon-github"></i></a><a title="Email" aria-label="Email Guangji Chen" href="mailto:chenguangji38@gmail.com"><i class="iconfont icon-email"></i></a></div><p class="site-footer-meta">© 2026 Guangji Chen · Built with Hexo</p></div></footer><script src="/js/jquery-3.6.1.min.js"></script><script src="/js/jquery-fancybox.min.js"></script><script src="/js/img_zoom.js"></script><script src="/js/post.js"></script><script src="/js/protected-post.js"></script></body></html>
