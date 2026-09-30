@@ -1,0 +1,386 @@
+/* Site-specific refinements for the academic redesign. */
+
+/*
+ * Visual hierarchy:
+ * - white is the main page canvas and the background behind all text;
+ * - black is used for headings, body copy, metadata and primary actions;
+ * - grey is reserved for borders, separators, image backdrops and decorative bars.
+ */
+:root {
+  --academic-bg: #ffffff;
+  --academic-surface: #ffffff;
+  --academic-ink: #000000;
+  --academic-text: #111111;
+  --academic-muted: #242424;
+  --academic-line: #d8d8d8;
+  --academic-accent: #111111;
+  --academic-accent-dark: #000000;
+  --academic-tint: #f1f1f1;
+  --academic-warm: #e8e8e8;
+  --academic-shadow: 0 14px 36px rgba(0, 0, 0, 0.07);
+}
+
+html,
+body.site-body,
+.site-main,
+.home-section,
+.academic-page,
+.academic-article,
+.academic-listing {
+  background: #fff !important;
+}
+
+body.site-body {
+  color: var(--academic-text);
+}
+
+.site-header {
+  border-bottom-color: rgba(0, 0, 0, 0.14);
+  background: rgba(255, 255, 255, 0.97);
+}
+
+.site-body > footer.site-footer {
+  background: #fff;
+}
+
+/* Keep virtually all interface text black or near-black. */
+.site-brand,
+.site-brand-field,
+.site-navigation-link,
+.home-role,
+.home-introduction,
+.home-facts dt,
+.home-facts dd,
+.section-heading > p:not(.eyebrow),
+.research-preview-card p,
+.selected-publication p,
+.home-writing-list span,
+.academic-page-lead,
+.listing-header > p:not(.eyebrow),
+.about-profile-card dt,
+.about-profile-card dd,
+.career-timeline p,
+.profile-link-grid span,
+.publication-entry p,
+.writing-card-meta,
+.writing-card p,
+.article-meta,
+.article-content,
+.article-content p,
+.article-content li,
+.article-content ol,
+.article-content ul,
+.article-toc a,
+.article-navigation-item small,
+.article-comments > p,
+.site-footer-copy p,
+.site-footer-meta {
+  color: #171717 !important;
+}
+
+/* Stronger typographic hierarchy. */
+.home-hero-copy h1,
+.section-heading h2,
+.home-contact h2,
+.academic-page-header h1,
+.article-header h1,
+.listing-header h1 {
+  color: #000 !important;
+  font-weight: 700;
+}
+
+.home-profile-content h2,
+.research-preview-card h3,
+.research-theme h2,
+.research-context-grid h3,
+.career-timeline h3,
+.publication-entry h3,
+.writing-card h2,
+.article-content h1,
+.article-content h2,
+.article-content h3,
+.article-content h4 {
+  color: #000 !important;
+  font-weight: 650;
+}
+
+.site-body strong,
+.article-content strong {
+  color: #000 !important;
+  font-weight: 750;
+}
+
+.eyebrow,
+.panel-label,
+.publication-venue,
+.publication-year,
+.article-toc-label,
+.research-preview-card span,
+.research-theme-number,
+.career-timeline time,
+.publication-year-group > h2 {
+  color: #000 !important;
+  font-weight: 800;
+}
+
+/* Navigation and actions. */
+.skip-link {
+  position: fixed;
+  top: -100px;
+  left: 18px;
+  z-index: 1000;
+  padding: 10px 14px;
+  border-radius: 8px;
+  color: #fff !important;
+  background: #000;
+  font-weight: 750;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: 18px;
+}
+
+.site-navigation {
+  scrollbar-width: none;
+}
+
+.site-navigation::-webkit-scrollbar {
+  display: none;
+}
+
+.site-navigation-link.is-active {
+  border-color: #000;
+  color: #000 !important;
+}
+
+.site-body a.primary-button:hover,
+.site-body a.primary-button:focus-visible,
+.site-body a.light-button:hover,
+.site-body a.light-button:focus-visible {
+  color: #fff !important;
+}
+
+.site-body a.secondary-button:hover,
+.site-body a.secondary-button:focus-visible {
+  color: #000 !important;
+}
+
+.site-body a:focus-visible,
+.site-body button:focus-visible,
+.site-body input:focus-visible {
+  outline: 3px solid rgba(0, 0, 0, 0.3);
+  outline-offset: 3px;
+}
+
+/* Home: all copy sits on white; grey only frames imagery and structure. */
+.home-hero {
+  background: #fff;
+}
+
+.home-profile-panel,
+.about-profile-card {
+  overflow: hidden;
+  border-color: #d4d4d4;
+  background: #ededed;
+  box-shadow: none;
+}
+
+.home-profile-content,
+.about-profile-card dl {
+  background: #fff;
+}
+
+/* Reuse the original website artwork in its original colours. */
+.home-profile-image.original-site-image,
+.about-profile-card .original-site-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: none;
+  object-fit: contain;
+  object-position: center;
+  border-bottom: 1px solid var(--academic-line);
+  background: #ededed;
+  filter: none;
+}
+
+/* The section itself remains white; grey appears only as rules and cards. */
+.home-section-tinted {
+  border-block-color: #dcdcdc;
+  background: #fff !important;
+}
+
+.research-preview-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  border: 0;
+}
+
+.research-preview-card {
+  position: relative;
+  padding: 38px 32px 32px;
+  border: 1px solid #d8d8d8;
+  border-radius: 12px;
+  background: #fff;
+}
+
+.research-preview-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 7px;
+  border-radius: 12px 12px 0 0;
+  background: #e6e6e6;
+}
+
+.research-preview-card:last-child {
+  border-right: 1px solid #d8d8d8;
+}
+
+.selected-publications {
+  display: grid;
+  gap: 12px;
+  border: 0;
+}
+
+.selected-publication {
+  padding: 24px;
+  border: 1px solid #d8d8d8;
+  border-radius: 10px;
+  background: #fff;
+}
+
+.home-contact {
+  background: #0b0b0b;
+}
+
+.home-contact,
+.home-contact p,
+.home-contact .eyebrow,
+.home-contact h2 {
+  color: #fff !important;
+}
+
+/* Standalone pages: text-bearing panels stay white. */
+.research-context {
+  position: relative;
+  border: 1px solid #dedede;
+  background: #fff;
+}
+
+.research-context::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 8px;
+  border-radius: var(--academic-radius) var(--academic-radius) 0 0;
+  background: #e8e8e8;
+}
+
+.research-context-grid article {
+  border-color: #d5d5d5;
+  background: #fff;
+  box-shadow: none;
+}
+
+.profile-link-grid a,
+.publication-entry,
+.writing-card,
+.article-navigation-item,
+.article-toc {
+  border-color: #d8d8d8;
+  background: #fff;
+  box-shadow: none;
+}
+
+.publication-entry {
+  position: relative;
+}
+
+.publication-entry::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 4px;
+  border-radius: 12px 0 0 12px;
+  background: #e3e3e3;
+}
+
+.publication-entry.featured::before {
+  background: #000;
+}
+
+.publication-entry.featured {
+  border-left-color: #d8d8d8;
+}
+
+.writing-card:hover,
+.profile-link-grid a:hover {
+  border-color: #111;
+  box-shadow: var(--academic-shadow);
+}
+
+/* Quotations and code remain on white, framed by grey rather than filled grey. */
+.article-content blockquote {
+  border: 1px solid #d8d8d8;
+  border-left: 4px solid #000 !important;
+  background: #fff !important;
+}
+
+.article-content code {
+  border: 1px solid #dedede;
+  background: #fff !important;
+}
+
+.article-content a {
+  color: #000 !important;
+  text-decoration-color: rgba(0, 0, 0, 0.42);
+}
+
+.keyword-list li,
+.academic-pagination .page-number,
+.academic-pagination .extend,
+.academic-tag {
+  color: #111 !important;
+  background: #fff;
+}
+
+/* Grey remains only in non-text structural areas. */
+.writing-card-image,
+.home-profile-image,
+.about-profile-card img {
+  background: #ededed;
+}
+
+.site-footer-meta {
+  border-top-color: #d8d8d8;
+}
+
+@media (prefers-color-scheme: dark) {
+  html,
+  body.site-body {
+    color-scheme: light;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .site-body *,
+  .site-body *::before,
+  .site-body *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}

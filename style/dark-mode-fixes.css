@@ -1,0 +1,166 @@
+/* Targeted dark-mode fixes from visual review.
+ * This file is loaded after site-theme.css so it can safely override
+ * older white-first rules without changing the light theme.
+ */
+
+/* Homepage hero ---------------------------------------------------------
+ * The artwork already lives on .home-hero-stage. Do not render a second
+ * copy on the outer hero in dark mode.
+ */
+html[data-theme='dark'] .home-hero.home-hero-background {
+  border-bottom-color: #343434 !important;
+  background: #111 !important;
+}
+
+/* Keep the original artwork clearly visible in dark mode. The overlay is
+ * intentionally light: it only takes the edge off the white canvas rather
+ * than heavily dimming the animals and map artwork.
+ */
+html[data-theme='dark'] .home-hero-stage {
+  background:
+    linear-gradient(rgba(17, 17, 17, 0.32), rgba(17, 17, 17, 0.32)),
+    linear-gradient(
+      90deg,
+      rgba(17, 17, 17, 0) 0%,
+      rgba(17, 17, 17, 0) 54%,
+      rgba(17, 17, 17, 0.06) 70%,
+      rgba(17, 17, 17, 0.18) 100%
+    ),
+    url('/images/web.webp') left center / min(900px, 76%) auto no-repeat,
+    #111 !important;
+}
+
+/* Slight transparency keeps the identity panel visually connected to the
+ * hero artwork without turning it into a glass-effect card.
+ */
+html[data-theme='dark'] .home-hero-information {
+  background: rgba(21, 21, 21, 0.90) !important;
+}
+
+/* Research paper cards -------------------------------------------------
+ * Captions use a dark surface, but scientific figures stay on a light
+ * neutral field so their original labels and colours remain legible.
+ */
+html[data-theme='dark'] .research-paper-card,
+html[data-theme='dark'] .research-paper-caption {
+  border-color: #343434 !important;
+  background: #151515 !important;
+  color: #f5f5f5 !important;
+}
+
+html[data-theme='dark'] .research-paper-card:hover,
+html[data-theme='dark'] .research-paper-card:focus-visible {
+  border-color: #fff !important;
+  background: #151515 !important;
+  color: #fff !important;
+}
+
+html[data-theme='dark'] .research-paper-caption span,
+html[data-theme='dark'] .research-paper-caption h3 {
+  color: #f5f5f5 !important;
+}
+
+html[data-theme='dark'] .research-paper-media,
+html[data-theme='dark'] .research-paper-media img,
+html[data-theme='dark'] .research-paper-media object,
+html[data-theme='dark'] .research-paper-fallback {
+  border-color: #343434 !important;
+  background: #f5f5f3 !important;
+}
+
+html[data-theme='dark'] .research-paper-fallback,
+html[data-theme='dark'] .research-paper-fallback strong,
+html[data-theme='dark'] .research-paper-fallback span,
+html[data-theme='dark'] .research-paper-fallback small {
+  color: #111 !important;
+}
+
+/* About: laboratory / collaborator links ------------------------------ */
+html[data-theme='dark'] .lab-links-section {
+  border-top-color: #343434 !important;
+}
+
+html[data-theme='dark'] .lab-links-section h2 {
+  color: #f5f5f5 !important;
+}
+
+html[data-theme='dark'] .lab-link-grid a,
+html[data-theme='dark'] .lab-link-grid a:hover,
+html[data-theme='dark'] .lab-link-grid a:focus-visible {
+  border-color: #3a3a3a !important;
+  background: #151515 !important;
+  color: #f5f5f5 !important;
+  box-shadow: none !important;
+}
+
+html[data-theme='dark'] .lab-link-grid a:hover,
+html[data-theme='dark'] .lab-link-grid a:focus-visible {
+  border-color: #fff !important;
+}
+
+html[data-theme='dark'] .lab-link-grid strong {
+  color: #f5f5f5 !important;
+}
+
+html[data-theme='dark'] .lab-link-grid span {
+  color: #d8d8d8 !important;
+}
+
+/* Dark-mode emphasis is white, never black ---------------------------- */
+html[data-theme='dark'] .publication-entry.featured::before,
+html[data-theme='dark'] .publication-entry::before {
+  background: #fff !important;
+}
+
+html[data-theme='dark'] .publication-entry.featured {
+  border-left-color: #fff !important;
+}
+
+html[data-theme='dark'] .publication-entry:hover,
+html[data-theme='dark'] .publication-entry:focus-within,
+html[data-theme='dark'] .selected-publication:hover,
+html[data-theme='dark'] .selected-publication:focus-within,
+html[data-theme='dark'] .writing-card:hover,
+html[data-theme='dark'] .profile-link-grid a:hover,
+html[data-theme='dark'] .profile-link-grid a:focus-visible {
+  border-color: #fff !important;
+}
+
+html[data-theme='dark'] .site-navigation-link.is-active::before,
+html[data-theme='dark'] .site-navigation-link.is-active::after {
+  background: #fff !important;
+  border-color: #fff !important;
+}
+
+html[data-theme='dark'] .site-navigation-link.is-active {
+  color: #fff !important;
+}
+
+@media (max-width: 1040px) {
+  html[data-theme='dark'] .home-hero-stage {
+    background:
+      linear-gradient(rgba(17, 17, 17, 0.34), rgba(17, 17, 17, 0.34)),
+      linear-gradient(
+        90deg,
+        rgba(17, 17, 17, 0) 0%,
+        rgba(17, 17, 17, 0) 50%,
+        rgba(17, 17, 17, 0.07) 70%,
+        rgba(17, 17, 17, 0.19) 100%
+      ),
+      url('/images/web.webp') left center / min(760px, 74%) auto no-repeat,
+      #111 !important;
+  }
+}
+
+@media (max-width: 760px) {
+  html[data-theme='dark'] .home-hero-stage {
+    background:
+      linear-gradient(rgba(17, 17, 17, 0.30), rgba(17, 17, 17, 0.30)),
+      url('/images/web.webp') center top / 100% auto no-repeat,
+      #111 !important;
+  }
+
+  html[data-theme='dark'] .home-hero-information {
+    background: rgba(21, 21, 21, 0.92) !important;
+  }
+}

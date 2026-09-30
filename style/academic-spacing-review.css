@@ -1,0 +1,367 @@
+/* Site-wide spacing audit.
+ * Keep enough breathing room for an editorial academic site without allowing
+ * cards and page sections to feel vertically inflated.
+ */
+
+/* Homepage sections */
+.home-section {
+  padding: 64px 0 !important;
+}
+
+.section-heading {
+  margin-bottom: 28px !important;
+}
+
+.section-heading h2,
+.home-contact h2 {
+  margin-bottom: 10px !important;
+}
+
+.section-heading-row {
+  gap: 20px !important;
+}
+
+.research-preview-grid {
+  gap: 12px !important;
+}
+
+.research-preview-card {
+  padding: 22px 26px 24px !important;
+}
+
+.research-preview-card::before {
+  height: 5px !important;
+}
+
+.research-preview-card h3 {
+  margin: 14px 0 8px !important;
+  line-height: 1.22;
+}
+
+.research-preview-card p {
+  line-height: 1.52;
+}
+
+.section-link {
+  margin-top: 18px !important;
+}
+
+.home-writing-layout {
+  gap: 56px !important;
+}
+
+.home-writing-list a {
+  gap: 14px !important;
+  padding: 16px 4px !important;
+}
+
+/* Shared page shells */
+.academic-page,
+.academic-article,
+.academic-listing {
+  padding: 56px 0 72px !important;
+}
+
+.academic-page-header,
+.article-header,
+.listing-header {
+  padding-bottom: 28px !important;
+}
+
+.academic-page-lead,
+.listing-header > p:not(.eyebrow) {
+  margin-top: 14px !important;
+}
+
+.academic-page-content {
+  padding-top: 36px !important;
+}
+
+.academic-page-content h2,
+.article-content h2 {
+  margin-top: 1.8em !important;
+}
+
+/* Research */
+.research-page-intro {
+  margin-bottom: 44px !important;
+}
+
+.research-theme {
+  grid-template-columns: 92px minmax(0, 1fr) !important;
+  gap: 28px !important;
+  padding: 36px 0 !important;
+}
+
+.research-theme h2 {
+  margin-bottom: 12px !important;
+}
+
+.research-theme p:not(.eyebrow) {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.research-theme p:last-child {
+  margin-bottom: 0;
+}
+
+.research-paper-showcase {
+  margin-top: 54px !important;
+  padding-top: 36px !important;
+}
+
+.research-paper-showcase .section-heading {
+  margin-bottom: 24px !important;
+}
+
+.research-paper-grid {
+  gap: 14px !important;
+}
+
+.research-paper-caption {
+  min-height: 132px !important;
+  padding: 16px !important;
+}
+
+.research-paper-caption h3 {
+  margin-top: 14px !important;
+}
+
+.research-context {
+  margin-top: 46px !important;
+  padding: 32px !important;
+}
+
+.research-context > div:first-child h2 {
+  margin-bottom: 24px !important;
+}
+
+.research-context-grid {
+  gap: 12px !important;
+}
+
+.research-context-grid article {
+  padding: 20px !important;
+}
+
+/* About */
+.about-intro-grid {
+  gap: 48px !important;
+}
+
+.about-profile-card dl {
+  padding: 20px !important;
+}
+
+.about-profile-card dl div {
+  padding: 10px 0 !important;
+}
+
+.career-section,
+.profile-links-section,
+.lab-links-section {
+  margin-top: 60px !important;
+  padding-top: 36px !important;
+}
+
+.career-timeline article {
+  gap: 24px !important;
+  padding: 18px 0 !important;
+}
+
+.profile-link-grid,
+.lab-link-grid {
+  gap: 10px !important;
+}
+
+.profile-link-grid a {
+  min-height: 124px !important;
+  padding: 20px !important;
+}
+
+.lab-links-section h2 {
+  margin-bottom: 20px !important;
+}
+
+.lab-link-grid a {
+  min-height: 112px !important;
+  padding: 20px !important;
+}
+
+/* Publications */
+.publication-page-intro {
+  margin-bottom: 30px !important;
+}
+
+.publication-year-group {
+  gap: 16px !important;
+  padding: 12px 0 !important;
+}
+
+/* Writing, archives, tags and categories */
+.listing-header {
+  margin-bottom: 30px !important;
+}
+
+.writing-grid {
+  gap: 14px !important;
+}
+
+.writing-card-image {
+  height: 200px !important;
+}
+
+.writing-card-body {
+  padding: 20px !important;
+}
+
+.writing-card h2 {
+  margin: 12px 0 8px !important;
+}
+
+.writing-card p {
+  margin-bottom: 12px;
+}
+
+.academic-pagination {
+  margin-top: 26px !important;
+}
+
+/* Individual articles */
+.article-tags {
+  margin-bottom: 12px !important;
+}
+
+.article-meta {
+  margin-top: 14px !important;
+}
+
+.article-layout {
+  gap: 48px !important;
+  margin-top: 36px !important;
+}
+
+.article-content h3 {
+  margin-top: 1.6em !important;
+}
+
+.article-content img {
+  margin: 24px auto !important;
+}
+
+.article-content blockquote {
+  margin: 22px 0 !important;
+}
+
+.article-toc {
+  padding-left: 18px !important;
+}
+
+.article-navigation {
+  gap: 10px !important;
+  margin-top: 48px !important;
+  padding-top: 24px !important;
+}
+
+.article-navigation-item {
+  padding: 16px !important;
+}
+
+.article-comments {
+  margin-top: 44px !important;
+  padding-top: 26px !important;
+}
+
+@media (max-width: 960px) {
+  .about-intro-grid {
+    gap: 36px !important;
+  }
+
+  .home-writing-layout {
+    gap: 30px !important;
+  }
+
+  .article-layout {
+    gap: 30px !important;
+  }
+}
+
+@media (max-width: 760px) {
+  .home-section,
+  .academic-page,
+  .academic-article,
+  .academic-listing {
+    padding: 44px 0 56px !important;
+  }
+
+  .section-heading {
+    margin-bottom: 24px !important;
+  }
+
+  .research-preview-card {
+    padding: 20px !important;
+  }
+
+  .academic-page-header,
+  .article-header,
+  .listing-header {
+    padding-bottom: 24px !important;
+  }
+
+  .academic-page-content {
+    padding-top: 28px !important;
+  }
+
+  .research-page-intro {
+    margin-bottom: 32px !important;
+  }
+
+  .research-theme {
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+    padding: 28px 0 !important;
+  }
+
+  .research-paper-showcase {
+    margin-top: 40px !important;
+    padding-top: 28px !important;
+  }
+
+  .research-context {
+    margin-top: 40px !important;
+    padding: 24px 18px !important;
+  }
+
+  .career-section,
+  .profile-links-section,
+  .lab-links-section {
+    margin-top: 44px !important;
+    padding-top: 28px !important;
+  }
+
+  .career-timeline article {
+    gap: 8px !important;
+    padding: 16px 0 !important;
+  }
+
+  .writing-card-image {
+    height: 180px !important;
+  }
+
+  .writing-card-body {
+    padding: 18px !important;
+  }
+
+  .article-layout {
+    margin-top: 28px !important;
+  }
+
+  .article-navigation {
+    margin-top: 38px !important;
+  }
+
+  .article-comments {
+    margin-top: 36px !important;
+  }
+}

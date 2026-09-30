@@ -1,0 +1,125 @@
+/* Focused layout refinements from visual review. */
+
+/* Homepage hero: keep the original artwork inside the shared site shell. */
+.home-hero.home-hero-background {
+  min-height: auto !important;
+  padding: 0 !important;
+  background: #fff !important;
+}
+
+.home-hero-stage {
+  position: relative;
+  isolation: isolate;
+  box-sizing: border-box;
+  overflow: hidden;
+  min-height: min(620px, calc(100vh - 78px)) !important;
+  padding: 40px 0;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0) 54%,
+      rgba(255, 255, 255, 0.05) 70%,
+      rgba(255, 255, 255, 0.18) 100%
+    ),
+    url('/images/web.webp') left center / min(900px, 76%) auto no-repeat,
+    #fff;
+}
+
+.home-hero-information {
+  position: relative;
+  z-index: 1;
+}
+
+/* Homepage writing: allow the heading to wrap without crowding the list. */
+.home-writing-layout {
+  grid-template-columns: minmax(230px, 0.55fr) minmax(0, 1.45fr) !important;
+  gap: 42px !important;
+}
+
+.home-writing-layout .section-heading {
+  max-width: 390px;
+}
+
+.home-writing-layout .section-heading h2 {
+  max-width: 360px;
+  white-space: normal !important;
+  text-wrap: balance;
+}
+
+/* Research page: keep the eyebrow visually attached to its section title. */
+.research-theme .eyebrow {
+  margin: 0 0 5px !important;
+}
+
+.research-theme h2 {
+  margin-top: 0 !important;
+}
+
+/* Selected work: equal square image fields for all three paper cards. */
+.research-paper-media {
+  aspect-ratio: 1 / 1 !important;
+  height: auto !important;
+  overflow: hidden;
+  background: #f8f8f8;
+}
+
+.research-paper-media > img,
+.research-paper-media > object {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.research-paper-media > img {
+  object-fit: cover;
+  object-position: center;
+}
+
+.research-paper-media-pdf > object {
+  object-fit: cover;
+}
+
+@media (max-width: 1040px) {
+  .home-hero-stage {
+    min-height: 560px !important;
+    padding: 36px 0;
+    background:
+      linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0) 50%,
+        rgba(255, 255, 255, 0.07) 70%,
+        rgba(255, 255, 255, 0.2) 100%
+      ),
+      url('/images/web.webp') left center / min(760px, 74%) auto no-repeat,
+      #fff;
+  }
+}
+
+@media (max-width: 960px) {
+  .home-writing-layout {
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+  }
+
+  .home-writing-layout .section-heading,
+  .home-writing-layout .section-heading h2 {
+    max-width: 620px;
+  }
+}
+
+@media (max-width: 760px) {
+  .home-hero-stage {
+    display: block;
+    min-height: 0 !important;
+    padding: calc(47.9% + 18px) 0 42px;
+    background:
+      url('/images/web.webp') center top / 100% auto no-repeat,
+      #fff;
+  }
+
+  .research-theme .eyebrow {
+    margin-bottom: 4px !important;
+  }
+}

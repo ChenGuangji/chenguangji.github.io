@@ -1,0 +1,287 @@
+/* Site-wide appearance layer. Loaded last so it can override the white-first theme. */
+:root {
+  color-scheme: light;
+}
+
+html[data-theme='dark'] {
+  color-scheme: dark;
+  --academic-bg: #111111;
+  --academic-surface: #151515;
+  --academic-ink: #f5f5f5;
+  --academic-text: #e8e8e8;
+  --academic-muted: #c6c6c6;
+  --academic-line: #343434;
+  --academic-accent: #ffffff;
+  --academic-accent-dark: #ffffff;
+  --academic-tint: #181818;
+  --academic-warm: #1d1d1d;
+  --academic-shadow: 0 12px 34px rgba(0, 0, 0, 0.28);
+  background: #111 !important;
+}
+
+.theme-toggle {
+  display: inline-grid;
+  width: 42px;
+  height: 42px;
+  flex: 0 0 42px;
+  place-items: center;
+  padding: 0;
+  border: 1px solid #cfcfcf;
+  border-radius: 999px;
+  background: #fff;
+  color: #000;
+  cursor: pointer;
+  transition: background 160ms ease, color 160ms ease, border-color 160ms ease, transform 160ms ease;
+}
+
+.theme-toggle:hover,
+.theme-toggle:focus-visible {
+  border-color: #000;
+  transform: translateY(-1px);
+}
+
+.theme-toggle-icon {
+  position: relative;
+  width: 17px;
+  height: 17px;
+}
+
+.theme-toggle-sun,
+.theme-toggle-moon {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: 16px;
+  line-height: 1;
+  transition: opacity 150ms ease, transform 150ms ease;
+}
+
+.theme-toggle-moon {
+  opacity: 0;
+  transform: rotate(-18deg) scale(0.8);
+}
+
+html[data-theme='dark'] .theme-toggle-sun {
+  opacity: 0;
+  transform: rotate(18deg) scale(0.8);
+}
+
+html[data-theme='dark'] .theme-toggle-moon {
+  opacity: 1;
+  transform: rotate(0) scale(1);
+}
+
+html[data-theme='dark'] body.site-body,
+html[data-theme='dark'] .site-main,
+html[data-theme='dark'] .home-hero,
+html[data-theme='dark'] .home-section,
+html[data-theme='dark'] .home-section-tinted,
+html[data-theme='dark'] .academic-page,
+html[data-theme='dark'] .academic-article,
+html[data-theme='dark'] .academic-listing,
+html[data-theme='dark'] .site-body > footer.site-footer {
+  color-scheme: dark;
+  background: #111 !important;
+  color: #e8e8e8 !important;
+}
+
+html[data-theme='dark'] .site-header {
+  border-bottom-color: #343434 !important;
+  background: rgba(17, 17, 17, 0.96) !important;
+}
+
+html[data-theme='dark'] .site-brand,
+html[data-theme='dark'] .site-brand-field,
+html[data-theme='dark'] .site-navigation-link,
+html[data-theme='dark'] .home-role,
+html[data-theme='dark'] .home-introduction,
+html[data-theme='dark'] .home-facts dt,
+html[data-theme='dark'] .home-facts dd,
+html[data-theme='dark'] .section-heading > p:not(.eyebrow),
+html[data-theme='dark'] .research-preview-card p,
+html[data-theme='dark'] .selected-publication p,
+html[data-theme='dark'] .home-writing-list span,
+html[data-theme='dark'] .academic-page-lead,
+html[data-theme='dark'] .listing-header > p:not(.eyebrow),
+html[data-theme='dark'] .about-profile-card dt,
+html[data-theme='dark'] .about-profile-card dd,
+html[data-theme='dark'] .career-timeline p,
+html[data-theme='dark'] .profile-link-grid span,
+html[data-theme='dark'] .publication-entry p,
+html[data-theme='dark'] .writing-card-meta,
+html[data-theme='dark'] .writing-card p,
+html[data-theme='dark'] .article-meta,
+html[data-theme='dark'] .article-content,
+html[data-theme='dark'] .article-content p,
+html[data-theme='dark'] .article-content li,
+html[data-theme='dark'] .article-content ol,
+html[data-theme='dark'] .article-content ul,
+html[data-theme='dark'] .article-toc a,
+html[data-theme='dark'] .article-navigation-item small,
+html[data-theme='dark'] .article-comments > p,
+html[data-theme='dark'] .site-footer-copy p,
+html[data-theme='dark'] .site-footer-meta {
+  color: #e8e8e8 !important;
+}
+
+html[data-theme='dark'] .site-body h1,
+html[data-theme='dark'] .site-body h2,
+html[data-theme='dark'] .site-body h3,
+html[data-theme='dark'] .site-body h4,
+html[data-theme='dark'] .site-body h5,
+html[data-theme='dark'] .site-body h6,
+html[data-theme='dark'] .site-body strong,
+html[data-theme='dark'] .eyebrow,
+html[data-theme='dark'] .panel-label,
+html[data-theme='dark'] .publication-venue,
+html[data-theme='dark'] .publication-year,
+html[data-theme='dark'] .article-toc-label,
+html[data-theme='dark'] .research-theme-number,
+html[data-theme='dark'] .research-preview-card span,
+html[data-theme='dark'] .career-timeline time,
+html[data-theme='dark'] .publication-year-group > h2,
+html[data-theme='dark'] .site-body a:not(.primary-button):not(.light-button) {
+  color: #f5f5f5 !important;
+}
+
+html[data-theme='dark'] .research-preview-card,
+html[data-theme='dark'] .selected-publication,
+html[data-theme='dark'] .publication-entry,
+html[data-theme='dark'] .writing-card,
+html[data-theme='dark'] .article-toc,
+html[data-theme='dark'] .article-navigation-item,
+html[data-theme='dark'] .profile-link-grid a,
+html[data-theme='dark'] .career-timeline article,
+html[data-theme='dark'] .research-context,
+html[data-theme='dark'] .research-context-grid article,
+html[data-theme='dark'] .about-profile-card,
+html[data-theme='dark'] .about-profile-card dl,
+html[data-theme='dark'] .research-paper-card,
+html[data-theme='dark'] .research-paper-caption,
+html[data-theme='dark'] .keyword-list li,
+html[data-theme='dark'] .academic-tag,
+html[data-theme='dark'] .academic-pagination .page-number,
+html[data-theme='dark'] .academic-pagination .extend,
+html[data-theme='dark'] .article-content blockquote,
+html[data-theme='dark'] .article-content code,
+html[data-theme='dark'] .article-content pre,
+html[data-theme='dark'] .article-content table,
+html[data-theme='dark'] .article-content th,
+html[data-theme='dark'] .article-content td,
+html[data-theme='dark'] .protected-post-gate {
+  border-color: #343434 !important;
+  background: #151515 !important;
+  color: #e8e8e8 !important;
+  box-shadow: none !important;
+}
+
+html[data-theme='dark'] .publication-tags span,
+html[data-theme='dark'] .journal-mark,
+html[data-theme='dark'] .keyword-list li,
+html[data-theme='dark'] .academic-tag,
+html[data-theme='dark'] .academic-pagination .page-number,
+html[data-theme='dark'] .academic-pagination .extend {
+  color: #f2f2f2 !important;
+  border-color: #424242 !important;
+  background: #151515 !important;
+}
+
+/* Keep all journal marks neutral in dark mode; Nature Communications is
+ * the only emphasized one, using a brighter border rather than inversion. */
+html[data-theme='dark'] .journal-mark-gigascience,
+html[data-theme='dark'] .journal-mark-gigascience span,
+html[data-theme='dark'] .journal-mark-gigascience small {
+  color: #f2f2f2 !important;
+  border-color: #424242 !important;
+  background: #151515 !important;
+}
+
+html[data-theme='dark'] .journal-mark-nature-communications {
+  color: #fff !important;
+  border-color: #fff !important;
+  background: #151515 !important;
+}
+
+html[data-theme='dark'] .journal-mark-nature-communications span,
+html[data-theme='dark'] .journal-mark-nature-communications small {
+  color: #fff !important;
+}
+
+html[data-theme='dark'] .primary-button {
+  color: #111 !important;
+  border-color: #fff !important;
+  background: #fff !important;
+}
+
+html[data-theme='dark'] .primary-button:hover,
+html[data-theme='dark'] .primary-button:focus-visible {
+  color: #111 !important;
+}
+
+html[data-theme='dark'] .secondary-button {
+  color: #fff !important;
+  border-color: #fff !important;
+  background: transparent !important;
+}
+
+html[data-theme='dark'] .home-hero.home-hero-background {
+  border-bottom-color: #343434 !important;
+  background:
+    linear-gradient(90deg, rgba(17,17,17,0) 0%, rgba(17,17,17,0) 56%, rgba(17,17,17,.08) 72%, rgba(17,17,17,.22) 100%),
+    url('/images/web.webp') left center / min(1100px, calc(100% - 420px)) auto no-repeat,
+    #111 !important;
+}
+
+html[data-theme='dark'] .home-hero-information {
+  border-color: #3c3c3c !important;
+  background: rgba(21, 21, 21, 0.96) !important;
+  box-shadow: 0 14px 42px rgba(0, 0, 0, 0.22);
+}
+
+html[data-theme='dark'] .home-avatar-card,
+html[data-theme='dark'] .home-hero-artwork,
+html[data-theme='dark'] .home-profile-image,
+html[data-theme='dark'] .about-profile-card img,
+html[data-theme='dark'] .writing-card-image,
+html[data-theme='dark'] .research-paper-media,
+html[data-theme='dark'] .research-paper-media img,
+html[data-theme='dark'] .research-paper-media object,
+html[data-theme='dark'] .research-paper-fallback {
+  border-color: #343434 !important;
+  background: #1d1d1d !important;
+}
+
+html[data-theme='dark'] .site-body .home-hero-information h1,
+html[data-theme='dark'] .site-body .home-hero-information .home-chinese-name,
+html[data-theme='dark'] .site-body .home-hero-information .home-role,
+html[data-theme='dark'] .site-body .home-hero-information .home-introduction,
+html[data-theme='dark'] .home-hero-information .eyebrow,
+html[data-theme='dark'] .home-hero-information .home-facts dt,
+html[data-theme='dark'] .home-hero-information .home-facts dd,
+html[data-theme='dark'] .home-hero-information .home-facts a {
+  color: #f5f5f5 !important;
+}
+
+html[data-theme='dark'] .home-hero-information .home-facts,
+html[data-theme='dark'] .home-section-tinted,
+html[data-theme='dark'] .research-paper-showcase,
+html[data-theme='dark'] .academic-page-header,
+html[data-theme='dark'] .article-header,
+html[data-theme='dark'] .listing-header,
+html[data-theme='dark'] .home-facts,
+html[data-theme='dark'] .home-writing-list,
+html[data-theme='dark'] .site-footer-meta {
+  border-color: #343434 !important;
+}
+
+html[data-theme='dark'] .theme-toggle {
+  border-color: #454545;
+  background: #151515;
+  color: #f5f5f5;
+}
+
+html[data-theme='dark'] .theme-toggle:hover,
+html[data-theme='dark'] .theme-toggle:focus-visible {
+  border-color: #fff;
+}

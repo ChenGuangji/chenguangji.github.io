@@ -1,0 +1,95 @@
+/* Publication tag organization.
+ * Authorship stays at lower-left; descriptive metadata sits beside DOI/PDF.
+ */
+.publication-entry.publication-entry-tags-organized {
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-rows: repeat(4, auto);
+}
+
+.publication-entry.publication-entry-tags-organized > p:not(.publication-venue) {
+  grid-column: 1 / -1;
+  grid-row: 3;
+}
+
+.publication-entry.publication-entry-tags-organized > .publication-tags-authorship {
+  grid-column: 1;
+  grid-row: 4;
+  align-self: center;
+  justify-self: start;
+  margin: 2px 0 0 !important;
+}
+
+.publication-entry.publication-entry-tags-organized > .publication-tags-authorship[hidden] {
+  display: none !important;
+}
+
+.publication-entry-actions {
+  display: flex;
+  min-width: 0;
+  grid-column: 2;
+  grid-row: 4;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 2px;
+}
+
+.publication-entry-actions .publication-tags-meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 3px;
+  margin: 0 !important;
+}
+
+.publication-entry-actions > a {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  margin: 0 !important;
+  font-size: 0.67rem;
+  font-weight: 750;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+/* When there is no First author / Co-first author tag, the complete
+ * information row stays right-aligned.
+ */
+.publication-entry.publication-entry-tags-organized:has(> .publication-tags-authorship[hidden]) .publication-entry-actions {
+  grid-column: 1 / -1;
+}
+
+@media (max-width: 760px) {
+  .publication-entry.publication-entry-tags-organized {
+    grid-template-columns: 1fr;
+  }
+
+  .publication-entry.publication-entry-tags-organized > .publication-tags-authorship {
+    grid-column: 1;
+    grid-row: 4;
+  }
+
+  .publication-entry-actions,
+  .publication-entry.publication-entry-tags-organized:has(> .publication-tags-authorship[hidden]) .publication-entry-actions {
+    grid-column: 1;
+    grid-row: 5;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    margin-top: 4px;
+  }
+}
+
+@media (max-width: 430px) {
+  .publication-entry-actions {
+    gap: 6px;
+  }
+
+  .publication-entry-actions .publication-tags-meta {
+    gap: 2px;
+  }
+
+  .publication-entry-actions > a {
+    font-size: 0.63rem;
+  }
+}

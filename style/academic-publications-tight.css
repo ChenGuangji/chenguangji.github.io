@@ -1,0 +1,136 @@
+/* Compact publication bibliography.
+ * DOI links share the final information row instead of occupying a new line.
+ */
+.publication-page-intro {
+  margin-bottom: 38px;
+}
+
+.publication-year-group {
+  grid-template-columns: 94px minmax(0, 1fr);
+  gap: 18px;
+  padding: 14px 0;
+}
+
+.publication-year-group > h2 {
+  top: 102px;
+  font-size: 1.28rem !important;
+}
+
+.publication-list {
+  gap: 7px;
+}
+
+.publication-entry {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-rows: repeat(4, auto);
+  column-gap: 16px;
+  row-gap: 2px;
+  padding: 8px 12px 8px 14px !important;
+  border-radius: 6px;
+}
+
+.publication-entry::before {
+  width: 3px;
+  border-radius: 6px 0 0 6px;
+}
+
+.publication-entry > .publication-venue {
+  grid-column: 1 / -1;
+  grid-row: 1;
+  margin: 0 0 1px !important;
+  font-size: 0.59rem;
+  line-height: 1.2;
+}
+
+.publication-entry > h3 {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  margin: 0 0 1px !important;
+  font-size: 0.93rem;
+  line-height: 1.19;
+}
+
+.publication-entry > p:not(.publication-venue) {
+  min-width: 0;
+  grid-column: 1;
+  grid-row: 3;
+  margin: 0 !important;
+  font-size: 0.71rem;
+  line-height: 1.27;
+}
+
+.publication-entry > .publication-tags {
+  min-width: 0;
+  grid-column: 1;
+  grid-row: 4;
+  align-self: center;
+  margin: 2px 0 0 !important;
+  gap: 3px;
+}
+
+.publication-entry .publication-tags span {
+  min-height: 18px;
+  padding: 0 6px;
+  font-size: 0.57rem;
+}
+
+.publication-entry > a {
+  grid-column: 2;
+  grid-row: 3;
+  align-self: end;
+  justify-self: end;
+  margin: 0 !important;
+  font-size: 0.67rem;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.publication-entry:has(> .publication-tags) > a {
+  grid-row: 4;
+  align-self: center;
+}
+
+@media (max-width: 760px) {
+  .publication-page-intro {
+    margin-bottom: 28px;
+  }
+
+  .publication-year-group {
+    grid-template-columns: 1fr;
+    gap: 7px;
+    padding: 12px 0;
+  }
+
+  .publication-year-group > h2 {
+    position: static;
+    font-size: 1.18rem !important;
+  }
+
+  .publication-entry {
+    column-gap: 10px;
+    padding: 8px 10px 8px 12px !important;
+  }
+
+  .publication-entry > h3 {
+    font-size: 0.9rem;
+  }
+
+  .publication-entry > p:not(.publication-venue) {
+    font-size: 0.69rem;
+  }
+}
+
+@media (max-width: 430px) {
+  .publication-entry {
+    column-gap: 7px;
+  }
+
+  .publication-entry > a {
+    font-size: 0.63rem;
+  }
+
+  .publication-entry .publication-tags span {
+    font-size: 0.54rem;
+  }
+}

@@ -1,0 +1,725 @@
+/* Wedding: unlisted personal media page. */
+
+.wedding-page {
+  background: var(--academic-bg);
+}
+
+.wedding-shell {
+  max-width: 1120px;
+  padding-top: 54px;
+  padding-bottom: 88px;
+}
+
+.wedding-page-header {
+  max-width: 760px;
+  margin-bottom: 54px;
+  padding-bottom: 26px;
+  border-bottom: 1px solid var(--academic-line);
+}
+
+.wedding-page-header h1 {
+  margin: 7px 0 10px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  font-weight: 500;
+  letter-spacing: -0.045em;
+  line-height: 0.95;
+}
+
+.wedding-page-lead {
+  max-width: 620px;
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.wedding-section-heading h2 {
+  margin: 6px 0 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 550;
+  letter-spacing: -0.025em;
+}
+
+.wedding-section {
+  margin-top: 84px;
+  padding-top: 38px;
+  border-top: 1px solid var(--academic-line);
+}
+
+.wedding-page-header + .wedding-section {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: 0;
+}
+
+.wedding-section-heading {
+  margin-bottom: 28px;
+}
+
+.wedding-section-heading h2 {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+}
+
+/* Video browser -------------------------------------------------------- */
+
+.wedding-video-heading,
+.wedding-photo-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.wedding-video-heading > p,
+.wedding-photo-heading > p {
+  margin: 0 0 5px;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+}
+
+.wedding-main-player {
+  width: min(100%, 920px);
+  margin: 0 auto;
+}
+
+.wedding-main-player-frame {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  border: 1px solid var(--academic-line);
+  border-radius: 16px;
+  background: #090909;
+}
+
+.wedding-main-player-frame video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: #090909;
+  object-fit: contain;
+}
+
+.wedding-main-player-frame video[hidden],
+.wedding-main-player-empty[hidden] {
+  display: none;
+}
+
+.wedding-main-player-empty {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: 10px;
+  padding: 30px;
+  background:
+    linear-gradient(145deg, rgba(255,255,255,0.035), rgba(255,255,255,0)),
+    #111;
+  color: #fff;
+  text-align: center;
+}
+
+.wedding-main-player-empty > span {
+  display: grid;
+  width: 48px;
+  height: 48px;
+  place-items: center;
+  margin-bottom: 4px;
+  border: 1px solid rgba(255,255,255,0.65);
+  border-radius: 999px;
+  font-size: 0.9rem;
+}
+
+.wedding-main-player-empty strong {
+  color: #fff !important;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.35rem, 2.8vw, 2rem);
+  font-weight: 500;
+}
+
+.wedding-main-player-empty small {
+  color: rgba(255,255,255,0.68);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+}
+
+.wedding-main-player-copy {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 14px 2px 0;
+}
+
+.wedding-main-player-copy > span {
+  flex: 0 0 auto;
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.wedding-main-player-copy h3 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1rem, 2vw, 1.35rem);
+  font-weight: 550;
+  text-align: right;
+}
+
+.wedding-video-picker {
+  position: relative;
+  width: min(100%, 1000px);
+  margin: 28px auto 0;
+  padding: 0 46px;
+}
+
+.wedding-video-picker-track {
+  display: flex;
+  gap: 14px;
+  overflow-x: auto;
+  padding: 2px 2px 10px;
+  scroll-behavior: smooth;
+  scroll-snap-type: x proximity;
+  scrollbar-width: none;
+  overscroll-behavior-inline: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+.wedding-video-picker-track::-webkit-scrollbar {
+  display: none;
+}
+
+.wedding-video-choice {
+  display: grid;
+  flex: 0 0 clamp(190px, 27vw, 245px);
+  grid-template-rows: auto auto;
+  gap: 10px;
+  min-width: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid var(--academic-line);
+  border-radius: 12px;
+  background: var(--academic-surface);
+  color: var(--academic-text);
+  text-align: left;
+  cursor: pointer;
+  scroll-snap-align: start;
+  transition: border-color 160ms ease, transform 160ms ease, box-shadow 160ms ease;
+}
+
+.wedding-video-choice:hover,
+.wedding-video-choice:focus-visible {
+  border-color: var(--academic-ink);
+  transform: translateY(-1px);
+  box-shadow: var(--academic-shadow);
+}
+
+.wedding-video-choice.is-active {
+  border-color: #000;
+  box-shadow: 0 0 0 1px #000;
+}
+
+.wedding-video-choice-preview {
+  position: relative;
+  display: grid;
+  aspect-ratio: 16 / 9;
+  place-items: center;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 70% 30%, rgba(255,255,255,0.11), transparent 34%),
+    #151515;
+  color: #fff;
+}
+
+.wedding-video-choice-preview.has-cover::after {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.04) 0%,
+    rgba(0, 0, 0, 0.10) 58%,
+    rgba(0, 0, 0, 0.28) 100%
+  );
+  content: "";
+}
+
+.wedding-video-choice-cover {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.wedding-video-choice-play,
+.wedding-video-choice-coming {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  padding-left: 2px;
+  border: 1px solid rgba(255,255,255,0.72);
+  border-radius: 999px;
+  font-size: 0.75rem;
+}
+
+.wedding-video-choice-coming {
+  width: auto;
+  min-width: 78px;
+  height: 34px;
+  padding: 0 12px;
+  border: 1px solid rgba(255,255,255,0.62);
+  border-radius: 999px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.wedding-video-choice.is-coming-soon {
+  cursor: default;
+}
+
+.wedding-video-choice.is-coming-soon:hover,
+.wedding-video-choice.is-coming-soon:focus-visible {
+  border-color: var(--academic-line);
+  box-shadow: none;
+  transform: none;
+}
+
+.wedding-video-choice.is-coming-soon .wedding-video-choice-preview {
+  background:
+    linear-gradient(145deg, rgba(255,255,255,0.035), rgba(255,255,255,0)),
+    #171717;
+}
+
+.wedding-video-choice.is-coming-soon .wedding-video-choice-copy small {
+  letter-spacing: 0.08em;
+}
+
+.wedding-video-choice-copy {
+  display: block;
+  min-width: 0;
+  padding: 0 12px 12px;
+}
+
+.wedding-video-choice-copy strong,
+.wedding-video-choice-copy small {
+  display: block;
+}
+
+.wedding-video-choice-copy strong {
+  overflow: hidden;
+  color: inherit !important;
+  font-size: 0.78rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.wedding-video-choice-copy small {
+  margin-top: 4px;
+  color: var(--academic-muted);
+  font-size: 0.61rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.wedding-video-picker-nav {
+  position: absolute;
+  z-index: 3;
+  top: 50%;
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  padding: 0 0 2px;
+  border: 1px solid var(--academic-line);
+  border-radius: 999px;
+  background: var(--academic-surface);
+  color: var(--academic-ink);
+  font-size: 1.35rem;
+  line-height: 1;
+  cursor: pointer;
+  transform: translateY(-50%);
+}
+
+.wedding-video-picker-nav:hover,
+.wedding-video-picker-nav:focus-visible {
+  border-color: var(--academic-ink);
+}
+
+.wedding-video-picker-nav:disabled {
+  opacity: 0.28;
+  cursor: default;
+}
+
+.wedding-video-picker-nav[hidden] {
+  display: none;
+}
+
+.wedding-video-picker-prev {
+  left: 0;
+}
+
+.wedding-video-picker-next {
+  right: 0;
+}
+
+.wedding-video-picker-empty {
+  display: grid;
+  min-height: 110px;
+  place-items: center;
+  margin-top: 24px;
+  border: 1px dashed var(--academic-line);
+  border-radius: 12px;
+  color: var(--academic-muted);
+  font-size: 0.72rem;
+}
+
+/* Stable adaptive masonry --------------------------------------------- */
+
+.wedding-photo-feed {
+  width: min(100%, 1040px);
+  margin: 0 auto;
+}
+
+.wedding-feed-stream {
+  display: grid;
+  grid-template-columns: repeat(var(--wedding-columns, 3), minmax(0, 1fr));
+  gap: 10px;
+  align-items: start;
+}
+
+.wedding-feed-column {
+  display: grid;
+  align-content: start;
+  gap: 10px;
+  min-width: 0;
+}
+
+.wedding-feed-photo {
+  width: 100%;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 9px;
+  background: var(--academic-warm);
+  opacity: 0;
+  transform: translateY(24px) scale(0.985);
+  transition:
+    opacity 680ms ease,
+    transform 820ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.wedding-feed-photo.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.wedding-feed-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  object-fit: cover;
+}
+
+.wedding-feed-sentinel {
+  display: grid;
+  min-height: 88px;
+  place-items: center;
+  padding: 24px 0 10px;
+  color: var(--academic-muted);
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: opacity 180ms ease;
+}
+
+.wedding-feed-sentinel.is-loading {
+  opacity: 0.58;
+}
+
+.wedding-feed-sentinel.is-complete {
+  min-height: 58px;
+}
+
+/* Invitation / guide pages -------------------------------------------- */
+
+.wedding-extra-section {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: 0;
+}
+
+.wedding-invitation-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.05fr 0.95fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.wedding-invitation-card {
+  display: grid;
+  grid-template-rows: 620px auto;
+  min-width: 0;
+  margin: 0;
+  align-items: center;
+  justify-items: center;
+}
+
+.wedding-invitation-card img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 620px;
+  justify-self: center;
+  align-self: center;
+  border: 1px solid var(--academic-line);
+  border-radius: 12px;
+  background: var(--academic-warm);
+  object-fit: contain;
+}
+
+.wedding-guide-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--academic-line);
+  border-radius: 12px;
+  background: var(--academic-warm);
+}
+
+.wedding-invitation-card figcaption {
+  width: 100%;
+  padding: 12px 2px 0;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-align: center;
+}
+
+.wedding-image-placeholder {
+  display: grid;
+  min-height: 420px;
+  place-items: center;
+  align-content: center;
+  gap: 8px;
+  padding: 28px;
+  border: 1px dashed var(--academic-line);
+  border-radius: 12px;
+  background: var(--academic-warm);
+  text-align: center;
+}
+
+.wedding-image-placeholder span {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.15rem;
+}
+
+.wedding-image-placeholder small {
+  color: var(--academic-muted);
+  font-size: 0.68rem;
+  letter-spacing: 0.05em;
+}
+
+.wedding-guide-frame {
+  width: min(100%, 900px);
+  margin: 0 auto;
+}
+
+.wedding-guide-placeholder {
+  min-height: 520px;
+}
+
+.wedding-page-nav {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 78px;
+  padding-top: 28px;
+  border-top: 1px solid var(--academic-line);
+}
+
+.wedding-page-nav-link {
+  display: flex;
+  min-height: 92px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 18px 20px;
+  border: 1px solid var(--academic-line);
+  border-radius: 12px;
+  background: var(--academic-surface);
+  color: var(--academic-text);
+  text-decoration: none;
+  transition:
+    border-color 160ms ease,
+    transform 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.wedding-page-nav-link:hover,
+.wedding-page-nav-link:focus-visible {
+  border-color: var(--academic-ink);
+  color: var(--academic-text);
+  transform: translateY(-1px);
+  box-shadow: var(--academic-shadow);
+}
+
+.wedding-page-nav-link span,
+.wedding-page-nav-link strong {
+  display: block;
+}
+
+.wedding-page-nav-link span {
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.wedding-page-nav-link strong {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.2rem;
+  font-weight: 550;
+}
+
+/* Dark mode ------------------------------------------------------------ */
+
+html[data-theme='dark'] .wedding-page {
+  background: #111 !important;
+}
+
+html[data-theme='dark'] .wedding-page-header,
+html[data-theme='dark'] .wedding-section,
+html[data-theme='dark'] .wedding-main-player-frame,
+html[data-theme='dark'] .wedding-video-choice,
+html[data-theme='dark'] .wedding-video-picker-nav,
+html[data-theme='dark'] .wedding-video-picker-empty {
+  border-color: #343434 !important;
+}
+
+html[data-theme='dark'] .wedding-video-choice,
+html[data-theme='dark'] .wedding-video-picker-nav {
+  background: #151515 !important;
+}
+
+html[data-theme='dark'] .wedding-video-choice:hover:not(.is-coming-soon),
+html[data-theme='dark'] .wedding-video-choice:focus-visible:not(.is-coming-soon),
+html[data-theme='dark'] .wedding-video-choice.is-active,
+html[data-theme='dark'] .wedding-video-picker-nav:hover,
+html[data-theme='dark'] .wedding-video-picker-nav:focus-visible {
+  border-color: #fff !important;
+}
+
+html[data-theme='dark'] .wedding-video-choice.is-active {
+  box-shadow: 0 0 0 1px #fff;
+}
+
+html[data-theme='dark'] .wedding-feed-photo,
+html[data-theme='dark'] .wedding-invitation-card img,
+html[data-theme='dark'] .wedding-guide-frame img,
+html[data-theme='dark'] .wedding-image-placeholder {
+  background: #1a1a1a !important;
+}
+
+html[data-theme='dark'] .wedding-invitation-card img,
+html[data-theme='dark'] .wedding-guide-frame img,
+html[data-theme='dark'] .wedding-image-placeholder,
+html[data-theme='dark'] .wedding-page-nav,
+html[data-theme='dark'] .wedding-page-nav-link {
+  border-color: #343434 !important;
+}
+
+html[data-theme='dark'] .wedding-page-nav-link {
+  background: #151515 !important;
+}
+
+html[data-theme='dark'] .wedding-page-nav-link:hover,
+html[data-theme='dark'] .wedding-page-nav-link:focus-visible {
+  border-color: #fff !important;
+  color: #fff !important;
+}
+
+/* Responsive ----------------------------------------------------------- */
+
+@media (max-width: 760px) {
+  .wedding-shell {
+    padding-top: 38px;
+    padding-bottom: 64px;
+  }
+
+  .wedding-page-header {
+    margin-bottom: 42px;
+  }
+
+  .wedding-section {
+    margin-top: 62px;
+    padding-top: 30px;
+  }
+
+  .wedding-video-heading,
+  .wedding-photo-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .wedding-main-player-copy {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .wedding-main-player-copy h3 {
+    text-align: left;
+  }
+
+  .wedding-video-picker {
+    padding: 0;
+  }
+
+  .wedding-video-picker-nav {
+    display: none !important;
+  }
+
+  .wedding-video-choice {
+    flex-basis: min(72vw, 230px);
+  }
+
+  .wedding-invitation-grid {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+
+  .wedding-invitation-card {
+    grid-template-rows: auto auto;
+  }
+
+  .wedding-invitation-card img {
+    max-width: min(100%, 520px);
+    max-height: none;
+  }
+
+  .wedding-image-placeholder,
+  .wedding-guide-placeholder {
+    min-height: 300px;
+  }
+
+  .wedding-page-nav {
+    grid-template-columns: 1fr;
+    margin-top: 56px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wedding-feed-photo,
+  .wedding-feed-sentinel {
+    transition: none !important;
+  }
+}
